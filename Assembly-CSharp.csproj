@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{5E06E4DE-2821-B00B-86EE-A2F4F91CFDC7}</ProjectGuid>
+	<ProjectGuid>{2BD23CE5-5E45-B24F-B26C-7223EA340F86}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,8 +45,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MoveWith360.cs" />
-     <Compile Include="Assets\MovementWith360.cs" />
+     <Compile Include="Assets\Scripts\MoveWith360.cs" />
+     <Compile Include="Assets\Scripts\MoveWithKeyboard.cs" />
+     <Compile Include="Assets\Scripts\MovementWith360.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
