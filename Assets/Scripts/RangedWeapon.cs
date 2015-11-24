@@ -20,7 +20,7 @@ public class RangedWeapon : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "Player") {
-			other.GetComponent<Health>().health = other.GetComponent<Health>().health - damage;
+			//other.GetComponent<Health>().health = other.GetComponent<Health>().health - damage;
 			other.GetComponent<Rigidbody>().AddForce (other.transform.forward * -knockBack); // add backwards force on enemy player
 		}
 		if (other.tag == "Floor") {
