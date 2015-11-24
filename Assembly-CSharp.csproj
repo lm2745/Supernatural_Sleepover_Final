@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{2BD23CE5-5E45-B24F-B26C-7223EA340F86}</ProjectGuid>
+	<ProjectGuid>{858C28F2-1B8C-9FF8-BF09-4B58E2AD881A}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,18 +45,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\InputManager.cs" />
      <Compile Include="Assets\Player.cs" />
+=======
+>>>>>>> eb42cb6b232c7d8d1579261ffcfb53a4034cf6be
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\MeleeWeapon.cs" />
      <Compile Include="Assets\Scripts\MoveWith360.cs" />
      <Compile Include="Assets\Scripts\MoveWithKeyboard.cs" />
      <Compile Include="Assets\Scripts\MovementWith360.cs" />
      <Compile Include="Assets\Scripts\RangedWeapon.cs" />
+<<<<<<< HEAD
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
+=======
+>>>>>>> eb42cb6b232c7d8d1579261ffcfb53a4034cf6be
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
