@@ -11,7 +11,7 @@ public class Health : MonoBehaviour {
 	void Start ()
 	{
 		curHealth = maxHealth;
-		InvokeRepeating ("decreaseHealth", 1f, 1f); // test health bar to see if it works
+		//InvokeRepeating ("decreaseHealth", 1f, 1f); // test health bar to see if it works
 	}
 	
 	// Update is called once per frame
@@ -19,9 +19,14 @@ public class Health : MonoBehaviour {
 	{
 	}
 
-	void decreaseHealth()
+	public void decreaseHealth(float amount)
 	{
-		curHealth -= 5f; // testing purposes
+		//Debug.Log ("health decreased");
+		curHealth -= amount;
+		if (curHealth < 0f) {
+			curHealth = 0f;
+			//contact gameManager that you dead
+		}
 		float calcHealth = curHealth / maxHealth;
 		setHealthBar (calcHealth);
 	}

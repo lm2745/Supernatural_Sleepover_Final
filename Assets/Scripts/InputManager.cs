@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
-public class InputManager{
+public class InputManager {
 
     int joystickNum; //determines which controller to get input from
 
@@ -21,7 +21,7 @@ public class InputManager{
 
         //Set string to use with Input.GetAxis(String)
         leftX = "360LeftX" + joystickNum;
-        leftY = "360LefyY" + joystickNum;
+        leftY = "360LeftY" + joystickNum;
         
 
         if(joystickNum == 1)
