@@ -6,7 +6,7 @@ public class MoveWithKeyboard : MonoBehaviour {
 	Rigidbody rbody;
 
 	float range = 10;
-	float range2 = .2f;
+	float range2 = .1f;
 	float range3 = 200;
 
 	void Start() {
