@@ -15,63 +15,77 @@ public class Player : MonoBehaviour {
 	public int classID; // Santa(1), Cupid(2), Easter Bunny(3), Tooth Fairy(4)
 	public Projectile projectilePrefab;
 
+	// attack cooldown, same for all classes (for now)
+	float attackCooldown = 1f;
+	float timeSinceLastAttack;
+
     void Start ()
     {
 		//createManager(1, OS.WINDOWS);
-        moveSpeed = 0.2f;
+        //moveSpeed = 0.1f;
 	}
 	
 	void FixedUpdate() {
 		//if (inputManager != null) {
-			move();
+		move();
+		timeSinceLastAttack += Time.deltaTime;
 		//}
 	}
 
 	void Update () {
 		if (inputManager.getAction1Down() ) {
-			//if (tag == "Santa") {
-			if (classID == 1) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 50f;
-				temp.projectileSpeed = 0.3f;
-				temp.maxProjectileLife = 5f;
-				temp.knockback = 500f;
-				temp.team = team;
-				//health.decreaseHealth(50f);
-			}
-			//else if (tag == "Cupid") {
-			else if (classID == 2) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 10f;
-				temp.projectileSpeed = 0.15f;
-				temp.maxProjectileLife = 50f;
-				temp.knockback = 50f;
-				temp.team = team;
-				//health.decreaseHealth(10f);
-			}
-			//else if (tag == "Easter Bunny") {
-			else if (classID == 3) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 30f;
-				temp.projectileSpeed = 0.3f;
-				temp.maxProjectileLife = 5f;
-				temp.knockback = 200f;
-				temp.team = team;
-				//health.decreaseHealth(30f);
-			}
-			//else if (tag == "Tooth Fairy") {
-			else if (classID == 4) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 5f;
-				temp.projectileSpeed = 0.25f;
-				temp.maxProjectileLife = 100f;
-				temp.knockback = 10f;
-				temp.team = team;
-				//health.decreaseHealth(5f);
+			//attack cooldown (temp code assuming cooldown same for all classes)
+			if (timeSinceLastAttack >= attackCooldown) {
+				//if (tag == "Santa") {
+				if (classID == 1) {
+					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					temp.transform.position += temp.transform.forward/2;
+					temp.damage = 25f;
+					temp.projectileSpeed = 0.3f;
+					temp.maxProjectileLife = 5f;
+					temp.knockback = 350f;
+					temp.team = team;
+					temp.GetComponent<Renderer>().material.color = Color.red;
+					//health.decreaseHealth(50f);
+				}
+				//else if (tag == "Cupid") {
+				else if (classID == 2) {
+					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					//temp.transform.position += temp.transform.forward;
+					temp.damage = 10f;
+					temp.projectileSpeed = 0.15f;
+					temp.maxProjectileLife = 50f;
+					temp.knockback = 150f;
+					temp.team = team;
+					temp.GetComponent<Renderer>().material.color = Color.white;
+					//health.decreaseHealth(10f);
+				}
+				//else if (tag == "Easter Bunny") {
+				else if (classID == 3) {
+					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					//temp.transform.position += temp.transform.forward;
+					temp.damage = 20f;
+					temp.projectileSpeed = 0.3f;
+					temp.maxProjectileLife = 5f;
+					temp.knockback = 250f;
+					temp.team = team;
+					temp.GetComponent<Renderer>().material.color = Color.magenta;
+					//health.decreaseHealth(30f);
+				}
+				//else if (tag == "Tooth Fairy") {
+				else if (classID == 4) {
+					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					temp.transform.position += temp.transform.forward/2;
+					temp.damage = 7f;
+					temp.projectileSpeed = 0.25f;
+					temp.maxProjectileLife = 100f;
+					temp.knockback = 100f;
+					temp.team = team;
+					temp.GetComponent<Renderer>().material.color = Color.blue;
+					//health.decreaseHealth(5f);
+				}
+				// temp code part of equal cooldown assumption
+				timeSinceLastAttack = 0f;
 			}
 		}
 

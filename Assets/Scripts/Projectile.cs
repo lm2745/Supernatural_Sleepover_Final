@@ -21,9 +21,16 @@ public class Projectile : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.tag == "Wall") {
+	//void OnCollisionEnter(Collision collision) {
+	void OnTriggerEnter(Collider collision) {
+		//Debug.Log("hit");
+		//if (collision.gameObject.tag == "Wall") {
+		//	Destroy(this.gameObject);
+		//	Debug.Log("hit wall");
+		//}
+		if (collision.tag == "Obstacle") {
 			Destroy(this.gameObject);
+			Debug.Log("hit wall");
 		}
 		/*
 		if ( collision.gameObject.tag == "Player 1" || collision.gameObject.tag == "Player 2" ||
@@ -39,24 +46,26 @@ public class Projectile : MonoBehaviour {
 		//if fired by team 1, ignore player 1, 3
 		if (team == 1) {
 			if (collision.gameObject.tag == "Player 1" || collision.gameObject.tag == "Player 3") {
-				Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
-				Destroy (this.gameObject);
+				Physics.IgnoreCollision(collision.GetComponent<Collider>(), GetComponent<Collider>());
+				//Destroy (this.gameObject);
 			}
 			else if (collision.gameObject.tag == "Player 2" || collision.gameObject.tag == "Player 4") {
 				collision.gameObject.GetComponent<Player>().health.decreaseHealth(damage);
-				collision.gameObject.GetComponent<Rigidbody>().AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
+				//collision.gameObject.GetComponent<Rigidbody>().AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
+				collision.attachedRigidbody.AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
 				Destroy (this.gameObject);
 			}
 		}
 		//if fired by team 2, ignore player 2, 4
 		if (team == 2) {
 			if (collision.gameObject.tag == "Player 2" || collision.gameObject.tag == "Player 4") {
-				Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
-				Destroy (this.gameObject);
+				Physics.IgnoreCollision(collision.GetComponent<Collider>(), GetComponent<Collider>());
+				//Destroy (this.gameObject);
 			}
 			else if (collision.gameObject.tag == "Player 1" || collision.gameObject.tag == "Player 3") {
 				collision.gameObject.GetComponent<Player>().health.decreaseHealth(damage);
-				collision.gameObject.GetComponent<Rigidbody>().AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
+				//collision.gameObject.GetComponent<Rigidbody>().AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
+				collision.attachedRigidbody.AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
 				Destroy (this.gameObject);
 			}
 		}

@@ -53,7 +53,20 @@ public class GameManager : MonoBehaviour {
 			temp.createManager(i+1, os);
 			temp.health = healthBars[i];
 			temp.tag = playerTags[i];
+			// Santa(1), Cupid(2), Easter Bunny(3), Tooth Fairy(4)
 			temp.classID = i + 1;
+			if (i + 1 == 1) {
+				temp.moveSpeed = 0.15f;
+			}
+			else if (i + 1 == 2) {
+				temp.moveSpeed = 0.12f;
+			}
+			else if (i + 1 == 3) {
+				temp.moveSpeed = 0.15f;
+			}
+			else if (i + 1 == 4) {
+				temp.moveSpeed = 0.12f;
+			}
 			temp.team = i % 2 + 1;
 			players[i] = temp;
 			//Debug.Log (i + "created");
