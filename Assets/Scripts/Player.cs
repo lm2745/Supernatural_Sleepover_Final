@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     //             getAction2(), getAction2Down(), getAction2Up()
     public float moveSpeed;
 	/* samir physics movement commit */
-	//public float maxSpeed = 5f;
+	public float maxSpeed = 5f;
 	// ******
     //public float health;
 	public Health health;
