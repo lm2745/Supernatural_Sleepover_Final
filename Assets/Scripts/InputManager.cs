@@ -41,8 +41,8 @@ public class InputManager {
         }
         else if (joystickNum == 2)
         {
-            action1Keyboard = KeyCode.Greater;
-            action2Keyboard = KeyCode.Question;
+            action1Keyboard = KeyCode.Slash;
+            action2Keyboard = KeyCode.Period;
             if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
             {
                 action1Joystick = KeyCode.Joystick2Button0;

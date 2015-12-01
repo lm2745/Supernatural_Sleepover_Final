@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour {
 
 	public Health[] healthBars;
 
-	Vector3[] playerPositions = {new Vector3(8f, 1f, -16f), new Vector3(25f, 1f, -16f),
-						  		 new Vector3(8f, 1f, -27f), new Vector3(25f, 1f, -27f)};
+	Vector3[] playerPositions = {new Vector3(8f, 15f, -16f), new Vector3(25f, 15f, -16f),
+						  		 new Vector3(8f, 15f, -27f), new Vector3(25f, 15f, -27f)};
 	string[] playerTags = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
     OS os;
@@ -53,7 +53,24 @@ public class GameManager : MonoBehaviour {
 			temp.createManager(i+1, os);
 			temp.health = healthBars[i];
 			temp.tag = playerTags[i];
+			// Santa(1), Cupid(2), Easter Bunny(3), Tooth Fairy(4)
 			temp.classID = i + 1;
+			if (i + 1 == 1) {
+				temp.moveSpeed = 0.15f;
+				temp.GetComponent<Renderer>().material.color = Color.red;
+			}
+			else if (i + 1 == 2) {
+				temp.moveSpeed = 0.12f;
+				temp.GetComponent<Renderer>().material.color = Color.white;
+			}
+			else if (i + 1 == 3) {
+				temp.moveSpeed = 0.15f;
+				temp.GetComponent<Renderer>().material.color = Color.magenta;
+			}
+			else if (i + 1 == 4) {
+				temp.moveSpeed = 0.12f;
+				temp.GetComponent<Renderer>().material.color = Color.blue;
+			}
 			temp.team = i % 2 + 1;
 			players[i] = temp;
 			//Debug.Log (i + "created");
@@ -69,7 +86,14 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+		// temp: make it 2 player
+		if (Input.GetKeyDown(KeyCode.Alpha9)) {
+			for (int i = 2; i < 4; i++) {
+				players[i].health.decreaseHealth(100f);
+				Destroy(players[i].gameObject);
 
+			}
+		}
 
 	}
 
