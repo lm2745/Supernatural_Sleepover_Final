@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     //             getAction1(), getAction1Down(), getAction1Up()
     //             getAction2(), getAction2Down(), getAction2Up()
     public float moveSpeed;
+    public float maxSpeed = 5f;
     //public float health;
 	public Health health;
 
@@ -19,11 +20,27 @@ public class Player : MonoBehaviour {
     {
 		//createManager(1, OS.WINDOWS);
         moveSpeed = 0.2f;
-	}
+        if (classID == 1)
+        {
+            GetComponent<Rigidbody>().mass = .4f;
+        }
+        else if (classID == 2)
+        {
+            GetComponent<Rigidbody>().mass = .3f;
+        }
+        else if (classID == 2)
+        {
+            GetComponent<Rigidbody>().mass = .32f;
+        }
+        else if (classID == 2)
+        {
+            GetComponent<Rigidbody>().mass = .3f;
+        }
+    }
 	
 	void FixedUpdate() {
 		//if (inputManager != null) {
-			move();
+			moveWithForce();
 		//}
 	}
 
@@ -38,8 +55,8 @@ public class Player : MonoBehaviour {
 				temp.maxProjectileLife = 5f;
 				temp.knockback = 500f;
 				temp.team = team;
-				//health.decreaseHealth(50f);
-			}
+                //health.decreaseHealth(50f);
+            }
 			//else if (tag == "Cupid") {
 			else if (classID == 2) {
 				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
@@ -49,10 +66,11 @@ public class Player : MonoBehaviour {
 				temp.maxProjectileLife = 50f;
 				temp.knockback = 50f;
 				temp.team = team;
-				//health.decreaseHealth(10f);
-			}
-			//else if (tag == "Easter Bunny") {
-			else if (classID == 3) {
+
+                //health.decreaseHealth(10f);
+            }
+            //else if (tag == "Easter Bunny") {
+            else if (classID == 3) {
 				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
 				temp.transform.position += temp.transform.forward;
 				temp.damage = 30f;
@@ -60,10 +78,11 @@ public class Player : MonoBehaviour {
 				temp.maxProjectileLife = 5f;
 				temp.knockback = 200f;
 				temp.team = team;
-				//health.decreaseHealth(30f);
-			}
-			//else if (tag == "Tooth Fairy") {
-			else if (classID == 4) {
+
+                //health.decreaseHealth(30f);
+            }
+            //else if (tag == "Tooth Fairy") {
+            else if (classID == 4) {
 				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
 				temp.transform.position += temp.transform.forward;
 				temp.damage = 5f;
@@ -71,9 +90,11 @@ public class Player : MonoBehaviour {
 				temp.maxProjectileLife = 100f;
 				temp.knockback = 10f;
 				temp.team = team;
-				//health.decreaseHealth(5f);
-			}
-		}
+
+                //health.decreaseHealth(5f);
+            }
+            Debug.Log(GetComponent<Rigidbody>().mass);
+        }
 
 		//test setting player class
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
@@ -181,6 +202,24 @@ public class Player : MonoBehaviour {
         {
             transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.position += transform.forward * Vector3.Distance(Vector3.zero, direction) * moveSpeed;
+        }
+    }
+
+    public void moveWithForce()
+    {
+        float h = inputManager.getAxisX();
+
+        float y = inputManager.getAxisY();
+
+
+        Vector3 direction = new Vector3(h, 0, -y);
+
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            GetComponent<Rigidbody>().AddForce(transform.forward * 8) ;
+            GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed);
+            //transform.position += transform.forward * Vector3.Distance(Vector3.zero, direction) * moveSpeed;
         }
     }
 }
