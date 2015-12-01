@@ -53,6 +53,10 @@ public class Projectile : MonoBehaviour {
 				collision.gameObject.GetComponent<Player>().health.decreaseHealth(damage);
 				//collision.gameObject.GetComponent<Rigidbody>().AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
 				collision.attachedRigidbody.AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
+				//temp: destroy dead players
+				if (collision.gameObject.GetComponent<Player>().health.curHealth <= 0f) {
+					Destroy (collision.gameObject);
+				}
 				Destroy (this.gameObject);
 			}
 		}
@@ -66,6 +70,10 @@ public class Projectile : MonoBehaviour {
 				collision.gameObject.GetComponent<Player>().health.decreaseHealth(damage);
 				//collision.gameObject.GetComponent<Rigidbody>().AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
 				collision.attachedRigidbody.AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
+				//temp: destroy dead players
+				if (collision.gameObject.GetComponent<Player>().health.curHealth <= 0f) {
+					Destroy (collision.gameObject);
+				}
 				Destroy (this.gameObject);
 			}
 		}
