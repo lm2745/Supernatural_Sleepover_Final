@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	public Player p2;
 	// test end
 
-	public Player playerPrefab;
+	public Player santaFab, toothFab, cupidFab, bunnyFab;
 
 	public Health[] healthBars;
 
@@ -47,7 +47,12 @@ public class GameManager : MonoBehaviour {
         players = new Player[4];
 		for (int i = 0; i < 4; i++) {
 			//Debug.Log ("2");
-			Player temp = (Player) Instantiate (playerPrefab, playerPositions[i], Quaternion.identity);
+			Player temp = null;
+			if(i == 0){temp = (Player) Instantiate (santaFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 1){temp = (Player) Instantiate (cupidFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 2){temp = (Player) Instantiate (bunnyFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 3){temp = (Player) Instantiate (toothFab, playerPositions[i], Quaternion.identity);}
+
 			//Debug.Log ("3");
 			//temp.classID = .....
 			temp.createManager(i+1, os);
