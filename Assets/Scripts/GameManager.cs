@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour {
 
 	public Health[] healthBars;
 
-	Vector3[] playerPositions = {new Vector3(8f, 15f, -16f), new Vector3(25f, 15f, -16f),
-						  		 new Vector3(8f, 15f, -27f), new Vector3(25f, 15f, -27f)};
+	Vector3[] playerPositions = {new Vector3(8f, 5f, -16f), new Vector3(25f, 5f, -16f),
+						  		 new Vector3(8f, 5f, -27f), new Vector3(25f, 5f, -27f)};
 	string[] playerTags = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
     OS os;
@@ -58,18 +58,25 @@ public class GameManager : MonoBehaviour {
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
 				temp.GetComponent<Renderer>().material.color = Color.red;
+				temp.GetComponent<Rigidbody>().mass = .4f;
 			}
 			else if (i + 1 == 2) {
 				temp.moveSpeed = 0.12f;
-				temp.GetComponent<Renderer>().material.color = Color.white;
+				temp.GetComponent<Renderer>().material.color = Color.blue;
+				temp.GetComponent<Rigidbody>().mass = .28f;
+
 			}
 			else if (i + 1 == 3) {
 				temp.moveSpeed = 0.15f;
-				temp.GetComponent<Renderer>().material.color = Color.magenta;
+				temp.GetComponent<Renderer>().material.color = Color.red;
+				temp.GetComponent<Rigidbody>().mass = .3f;
+
 			}
 			else if (i + 1 == 4) {
 				temp.moveSpeed = 0.12f;
 				temp.GetComponent<Renderer>().material.color = Color.blue;
+				temp.GetComponent<Rigidbody>().mass = .32f;
+
 			}
 			temp.team = i % 2 + 1;
 			players[i] = temp;

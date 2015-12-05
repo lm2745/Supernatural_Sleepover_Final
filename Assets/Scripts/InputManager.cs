@@ -41,8 +41,8 @@ public class InputManager {
         }
         else if (joystickNum == 2)
         {
-            action1Keyboard = KeyCode.Slash;
-            action2Keyboard = KeyCode.Period;
+            action1Keyboard = KeyCode.Question;
+            action2Keyboard = KeyCode.Greater;
             if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
             {
                 action1Joystick = KeyCode.Joystick2Button0;
@@ -110,6 +110,7 @@ public class InputManager {
     */               
     public bool getAction1Down()
     {
+		Debug.Log (action1Keyboard);
         return Input.GetKeyDown(action1Keyboard) || Input.GetKeyDown(action1Joystick);
     }
     public bool getAction2Down()

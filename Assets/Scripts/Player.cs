@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     //             getAction2(), getAction2Down(), getAction2Up()
     public float moveSpeed;
 	/* samir physics movement commit */
-	public float maxSpeed = 5f;
+	public float maxSpeed = 8f;
 	// ******
     //public float health;
 	public Health health;
@@ -30,8 +30,8 @@ public class Player : MonoBehaviour {
 	
 	void FixedUpdate() {
 		//if (inputManager != null) {
-		move();
-		//moveWithForce();
+		//move();
+		moveWithForce();
 		timeSinceLastAttack += Time.deltaTime;
 		//}
 	}
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour {
 					temp.maxProjectileLife = 50f;
 					temp.knockback = 150f;
 					temp.team = team;
-					temp.GetComponent<Renderer>().material.color = Color.white;
+					temp.GetComponent<Renderer>().material.color = Color.blue;
 					//health.decreaseHealth(10f);
 				}
 				//else if (tag == "Easter Bunny") {
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
 					temp.knockback = 250f;
 					temp.team = team;
 					temp.transform.localScale *= 2;
-					temp.GetComponent<Renderer>().material.color = Color.magenta;
+					temp.GetComponent<Renderer>().material.color = Color.red;
 					//health.decreaseHealth(30f);
 				}
 				//else if (tag == "Tooth Fairy") {
@@ -216,8 +216,27 @@ public class Player : MonoBehaviour {
 		if (direction != Vector3.zero)
 		{
 			transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-			GetComponent<Rigidbody>().AddForce(transform.forward * 8) ;
-			GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed);
+			GetComponent<Rigidbody>().AddForce(transform.forward * 30) ;
+
+			if(classID == 1)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed);
+			}
+			else if( classID == 2)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 3);
+
+			}
+			else if( classID == 3)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 2);
+				
+			}
+			else if( classID == 4)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 3);
+				
+			}
 			//transform.position += transform.forward * Vector3.Distance(Vector3.zero, direction) * moveSpeed;
 		}
 	}
