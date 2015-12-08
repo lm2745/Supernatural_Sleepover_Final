@@ -106,18 +106,23 @@ public class GameManager : MonoBehaviour {
 
 			}
 		}
+		CheckIfTeamDead();
 
 	}
 
     void CheckIfTeamDead()
     {
-        //if(players[0].health.curHealth <= 0 && players[1].health.curHealth <= 0)
-        //{
+        if(players[0].health.curHealth <= 0 && players[2].health.curHealth <= 0)
+        {
             //Team 1 is dead
-        //}
-       // if (players[2].health <= 0 && players[3].health <= 0)
-       // {
+			//End scene triggered
+			Application.LoadLevel ("endScene");
+        }
+       if (players[1].health.curHealth <= 0 && players[3].health.curHealth <= 0)
+       {
             //Team 2 is dead
-       // }
+			//End scene triggered
+			Application.LoadLevel ("endScene");
+       }
     }
 }
