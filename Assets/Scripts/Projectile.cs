@@ -72,6 +72,7 @@ public class Projectile : MonoBehaviour {
 				collision.attachedRigidbody.AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
 				//temp: destroy dead players
 				if (collision.gameObject.GetComponent<Player>().health.curHealth <= 0f) {
+					//Camera.main.GetComponent<GameManager>().CheckIfTeamDead();
 					Destroy (collision.gameObject);
 				}
 				Destroy (this.gameObject);
