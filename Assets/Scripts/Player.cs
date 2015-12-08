@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 				if (classID == 1) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
 					temp.transform.position += temp.transform.forward/2;
+					temp.transform.localScale *= 2;
 					temp.damage = 25f;
 					temp.projectileSpeed = 0.3f;
 					temp.maxProjectileLife = 2f;
@@ -51,23 +52,31 @@ public class Player : MonoBehaviour {
 					temp.team = team;
 					temp.transform.localScale *= 2;
 					temp.GetComponent<Renderer>().material.color = Color.red;
+					temp.projectileSpeed += GetComponent<Rigidbody>().velocity.y;
+
 					//health.decreaseHealth(50f);
 				}
 				//else if (tag == "Cupid") {
 				else if (classID == 2) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
 					//temp.transform.position += temp.transform.forward;
+					temp.transform.localScale *= 2;
+
 					temp.damage = 10f;
 					temp.projectileSpeed = 0.15f;
 					temp.maxProjectileLife = 50f;
 					temp.knockback = 150f;
 					temp.team = team;
 					temp.GetComponent<Renderer>().material.color = Color.blue;
+					temp.projectileSpeed += GetComponent<Rigidbody>().velocity.y;
+
 					//health.decreaseHealth(10f);
 				}
 				//else if (tag == "Easter Bunny") {
 				else if (classID == 3) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					temp.transform.localScale *= 2;
+
 					//temp.transform.position += temp.transform.forward;
 					temp.damage = 20f;
 					temp.projectileSpeed = 0.3f;
@@ -76,18 +85,23 @@ public class Player : MonoBehaviour {
 					temp.team = team;
 					temp.transform.localScale *= 2;
 					temp.GetComponent<Renderer>().material.color = Color.red;
+					temp.projectileSpeed += GetComponent<Rigidbody>().velocity.y;
+
 					//health.decreaseHealth(30f);
 				}
 				//else if (tag == "Tooth Fairy") {
 				else if (classID == 4) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					temp.transform.localScale *= 2;
+
 					temp.transform.position += temp.transform.forward/2;
 					temp.damage = 7f;
-					temp.projectileSpeed = 0.25f;
+					temp.projectileSpeed = 0.25f + GetComponent<Rigidbody>().velocity.y;;
 					temp.maxProjectileLife = 100f;
 					temp.knockback = 100f;
 					temp.team = team;
 					temp.GetComponent<Renderer>().material.color = Color.blue;
+
 					//health.decreaseHealth(5f);
 				}
 				// temp code part of equal cooldown assumption
