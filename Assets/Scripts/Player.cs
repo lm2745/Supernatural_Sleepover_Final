@@ -209,35 +209,43 @@ public class Player : MonoBehaviour {
 		float h = inputManager.getAxisX();
 		
 		float y = inputManager.getAxisY();
-		
-		
-		Vector3 direction = new Vector3(h, 0, -y);
-		
-		if (direction != Vector3.zero)
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        Vector3 direction = new Vector3(h, 0, -y);
+
+        //rb.AddForce(Physics.gravity);
+        Vector3 oldYVelocity = new Vector3(0,rb.velocity.y,0);
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
+        Vector3 newVelocity = Vector3.zero;
+
+        if (direction != Vector3.zero)
 		{
 			transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-			GetComponent<Rigidbody>().AddForce(transform.forward * 30) ;
+			rb.AddForce(transform.forward * 30) ;
 
 			if(classID == 1)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed);
+				 newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 1);
 			}
 			else if( classID == 2)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 3);
+                newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 3);
 
 			}
 			else if( classID == 3)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 2);
+                newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 2);
 				
 			}
 			else if( classID == 4)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 3);
+                newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 3);
 				
 			}
-			//transform.position += transform.forward * Vector3.Distance(Vector3.zero, direction) * moveSpeed;
-		}
-	}
+            //transform.position += transform.forward * Vector3.Distance(Vector3.zero, direction) * moveSpeed;
+            
+        }
+        rb.velocity = newVelocity + oldYVelocity;
+    }
 }

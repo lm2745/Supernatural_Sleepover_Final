@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
 				temp.GetComponent<Renderer>().material.color = Color.red;
-				temp.GetComponent<Rigidbody>().mass = .4f;
+				temp.GetComponent<Rigidbody>().mass = .45f;
 			}
 			else if (i + 1 == 2) {
 				temp.moveSpeed = 0.12f;
