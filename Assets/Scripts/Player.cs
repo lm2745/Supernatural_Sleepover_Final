@@ -75,7 +75,6 @@ public class Player : MonoBehaviour {
 				//else if (tag == "Easter Bunny") {
 				else if (classID == 3) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-					temp.transform.localScale *= 2;
 
 					//temp.transform.position += temp.transform.forward;
 					temp.damage = 20f;
