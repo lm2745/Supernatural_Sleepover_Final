@@ -16,16 +16,17 @@ public class Restart : MonoBehaviour {
 		if (GameManager.winningTeam == true)
 		{
 			teamOneCount += 1;
-			textBuffer += "\nTeam One (Santa and Easter Bunny) Wins!";
+			textBuffer += "\nRed Team Wins!";
 		}
 		else
 		{
 			teamTwoCount += 1;
-			textBuffer += "\nTeam Two (Cupid and Tooth Fairy) Wins!";
+			textBuffer += "\nBlue Team Wins!";
 		}
-		
-		textBuffer += "\nTeam One Rounds Won: " + teamOneCount;
-		textBuffer += "\nTeam Two Rounds Won: " + teamTwoCount;
+
+		textBuffer += "\n";
+		textBuffer += "\nRed Team Rounds Won: " + teamOneCount;
+		textBuffer += "\nBlue Team Rounds Won: " + teamTwoCount;
 
 		GetComponent<Text>().text = textBuffer;
 	
