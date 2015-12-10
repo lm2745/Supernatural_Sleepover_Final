@@ -15,21 +15,12 @@ public class Restart : MonoBehaviour {
 		
 		if (GameManager.winningTeam == true)
 		{
-<<<<<<< HEAD
 			textBuffer += "\nTeam Two (Easter Bunny and Tooth Fairy) Wins!";
 		}
 		else
 		{
 			textBuffer += "\nTeam One (Santa and Cupid) Wins!";
-=======
-			teamOneCount += 1;
-			textBuffer += "\nRed Team Wins!";
-		}
-		else
-		{
-			teamTwoCount += 1;
-			textBuffer += "\nBlue Team Wins!";
->>>>>>> 123a350840d72e2235b0da9517c23d000616b50e
+
 		}
 
 		textBuffer += "\n";
