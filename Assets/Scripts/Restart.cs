@@ -17,11 +17,11 @@ public class Restart : MonoBehaviour {
 		
 		if (GameManager.winningTeam == false)
 		{
-			textBuffer += "\nTeam Two (Cupid and Tooth Fairy) Wins!";
+			textBuffer += "\nTeam Two (Easter Bunny and Tooth Fairy) Wins!";
 		}
 		else
 		{
-			textBuffer += "\nTeam One (Santa and Easter Bunny) Wins!";
+			textBuffer += "\nTeam One (Santa and Cupid) Wins!";
 		}
 
 		if (Input.GetKeyDown (KeyCode.R))
