@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 	public Player p2;
 	// test end
 
+	public static bool winningTeam = true;
+
 	public Player santaFab, toothFab, cupidFab, bunnyFab;
 
 	public Health[] healthBars;
@@ -121,23 +123,30 @@ public class GameManager : MonoBehaviour {
 				
 			
 		}
+
 		CheckIfTeamDead();
 
 	}
 
     void CheckIfTeamDead()
     {
+
         if(players[0].health.curHealth <= 0 && players[2].health.curHealth <= 0)
         {
             //Team 1 is dead
 			//End scene triggered
+			winningTeam = false;
 			Application.LoadLevel ("endScene");
         }
-       if (players[1].health.curHealth <= 0 && players[3].health.curHealth <= 0)
+
+       else if (players[1].health.curHealth <= 0 && players[3].health.curHealth <= 0)
        {
             //Team 2 is dead
 			//End scene triggered
+			winningTeam = true;
 			Application.LoadLevel ("endScene");
        }
     }
+
+
 }
