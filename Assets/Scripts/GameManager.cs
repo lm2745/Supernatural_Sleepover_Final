@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour {
 
 	public Health[] healthBars;
 
-	Vector3[] playerPositions = {new Vector3(8f, 15f, -16f), new Vector3(25f, 15f, -16f),
-						  		 new Vector3(8f, 15f, -27f), new Vector3(25f, 15f, -27f)};
+	Vector3[] playerPositions = {new Vector3(8f, 5f, -16f), new Vector3(25f, 5f, -16f),
+						  		 new Vector3(8f, 5f, -27f), new Vector3(25f, 5f, -27f)};
 	string[] playerTags = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
     OS os;
@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour {
 			//Debug.Log ("2");
 			Player temp = null;
 			if(i == 0){temp = (Player) Instantiate (santaFab, playerPositions[i], Quaternion.identity);}
-			else if(i == 1){temp = (Player) Instantiate (cupidFab, playerPositions[i], Quaternion.identity);}
-			else if(i == 2){temp = (Player) Instantiate (bunnyFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 1){temp = (Player) Instantiate (bunnyFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 2){temp = (Player) Instantiate (cupidFab, playerPositions[i], Quaternion.identity);}
 			else if(i == 3){temp = (Player) Instantiate (toothFab, playerPositions[i], Quaternion.identity);}
 
 			//Debug.Log ("3");
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour {
 			temp.createManager(i+1, os);
 			temp.health = healthBars[i];
 			temp.tag = playerTags[i];
-			// Santa(1), Cupid(2), Easter Bunny(3), Tooth Fairy(4)
+			// Santa(1), Easter Bunny(2), Cupid(3), Tooth Fairy(4)
 			temp.classID = i + 1;
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
