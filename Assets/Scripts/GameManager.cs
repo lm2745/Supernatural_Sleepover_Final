@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
 				temp.GetComponent<Renderer>().material.color = Color.red;
-				temp.GetComponent<Rigidbody>().mass = .4f;
+				temp.GetComponent<Rigidbody>().mass = .45f;
 			}
 			else if (i + 1 == 2) {
 				temp.moveSpeed = 0.12f;
@@ -99,12 +99,27 @@ public class GameManager : MonoBehaviour {
 	void Update ()
     {
 		// temp: make it 2 player
-		if (Input.GetKeyDown(KeyCode.Alpha9)) {
-			for (int i = 2; i < 4; i++) {
-				players[i].health.decreaseHealth(100f);
-				Destroy(players[i].gameObject);
+		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+				players[0].health.decreaseHealth(100f);
+				Destroy(players[0].gameObject);
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha2)) {
+				players[1].health.decreaseHealth(100f);
+				Destroy(players[1].gameObject);
+				
 
-			}
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3)) {
+				players[2].health.decreaseHealth(100f);
+				Destroy(players[2].gameObject);
+				
+			
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha4)) {
+				players[3].health.decreaseHealth(100f);
+				Destroy(players[3].gameObject);
+				
+			
 		}
 		CheckIfTeamDead();
 

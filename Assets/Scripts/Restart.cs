@@ -13,7 +13,8 @@ public class Restart : MonoBehaviour {
 	{
 		if (Input.GetKeyDown (KeyCode.R))
 		{
-			Application.LoadLevel("gameUI"); // Application.LoadLevel("myGameScene");
+			//Application.LoadLevel("gameUI"); // Application.LoadLevel("myGameScene");
+			Application.LoadLevel ("differentArenaGameScene");
 		}
 	}
 }
