@@ -41,7 +41,7 @@ public class InputManager {
         }
         else if (joystickNum == 2)
         {
-            action1Keyboard = KeyCode.Question;
+            action1Keyboard = KeyCode.Space;
             action2Keyboard = KeyCode.Greater;
             if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
             {

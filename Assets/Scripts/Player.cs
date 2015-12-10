@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 				if (classID == 1) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
 					temp.transform.position += temp.transform.forward/2;
+					temp.transform.localScale *= 2;
 					temp.damage = 25f;
 					temp.projectileSpeed = 0.3f;
 					temp.maxProjectileLife = 2f;
@@ -51,23 +52,14 @@ public class Player : MonoBehaviour {
 					temp.team = team;
 					temp.transform.localScale *= 2;
 					temp.GetComponent<Renderer>().material.color = Color.red;
+					temp.projectileSpeed += GetComponent<Rigidbody>().velocity.y;
+
 					//health.decreaseHealth(50f);
 				}
-				//else if (tag == "Cupid") {
+				//else if (tag == "Easter Bunny") {
 				else if (classID == 2) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-					//temp.transform.position += temp.transform.forward;
-					temp.damage = 10f;
-					temp.projectileSpeed = 0.15f;
-					temp.maxProjectileLife = 50f;
-					temp.knockback = 150f;
-					temp.team = team;
-					temp.GetComponent<Renderer>().material.color = Color.blue;
-					//health.decreaseHealth(10f);
-				}
-				//else if (tag == "Easter Bunny") {
-				else if (classID == 3) {
-					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					
 					//temp.transform.position += temp.transform.forward;
 					temp.damage = 20f;
 					temp.projectileSpeed = 0.3f;
@@ -76,18 +68,39 @@ public class Player : MonoBehaviour {
 					temp.team = team;
 					temp.transform.localScale *= 2;
 					temp.GetComponent<Renderer>().material.color = Color.red;
+					temp.projectileSpeed += GetComponent<Rigidbody>().velocity.y;
+					
 					//health.decreaseHealth(30f);
+				}
+				//else if (tag == "Cupid") {
+				else if (classID == 3) {
+					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					//temp.transform.position += temp.transform.forward;
+					temp.transform.localScale *= 2;
+					
+					temp.damage = 10f;
+					temp.projectileSpeed = 0.15f;
+					temp.maxProjectileLife = 50f;
+					temp.knockback = 150f;
+					temp.team = team;
+					temp.GetComponent<Renderer>().material.color = Color.blue;
+					temp.projectileSpeed += GetComponent<Rigidbody>().velocity.y;
+					
+					//health.decreaseHealth(10f);
 				}
 				//else if (tag == "Tooth Fairy") {
 				else if (classID == 4) {
 					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
+					temp.transform.localScale *= 2;
+
 					temp.transform.position += temp.transform.forward/2;
 					temp.damage = 7f;
-					temp.projectileSpeed = 0.25f;
+					temp.projectileSpeed = 0.25f + GetComponent<Rigidbody>().velocity.y;;
 					temp.maxProjectileLife = 100f;
 					temp.knockback = 100f;
 					temp.team = team;
 					temp.GetComponent<Renderer>().material.color = Color.blue;
+
 					//health.decreaseHealth(5f);
 				}
 				// temp code part of equal cooldown assumption
@@ -209,35 +222,43 @@ public class Player : MonoBehaviour {
 		float h = inputManager.getAxisX();
 		
 		float y = inputManager.getAxisY();
-		
-		
-		Vector3 direction = new Vector3(h, 0, -y);
-		
-		if (direction != Vector3.zero)
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        Vector3 direction = new Vector3(h, 0, -y);
+
+        //rb.AddForce(Physics.gravity);
+        Vector3 oldYVelocity = new Vector3(0,rb.velocity.y,0);
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
+        Vector3 newVelocity = Vector3.zero;
+
+        if (direction != Vector3.zero)
 		{
 			transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-			GetComponent<Rigidbody>().AddForce(transform.forward * 30) ;
+			rb.AddForce(transform.forward * 30) ;
 
 			if(classID == 1)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed);
+				 newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 1);
 			}
 			else if( classID == 2)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 3);
+                newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 3);
 
 			}
 			else if( classID == 3)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 2);
+                newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 2);
 				
 			}
 			else if( classID == 4)
 			{
-				GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed + 3);
+                newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 3);
 				
 			}
-			//transform.position += transform.forward * Vector3.Distance(Vector3.zero, direction) * moveSpeed;
-		}
-	}
+            //transform.position += transform.forward * Vector3.Distance(Vector3.zero, direction) * moveSpeed;
+            
+        }
+        rb.velocity = newVelocity + oldYVelocity;
+    }
 }
