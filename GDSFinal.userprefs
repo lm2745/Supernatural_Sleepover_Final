@@ -1,15 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Restart.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="GDSFinal.sln" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="5" Column="2" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="8" Column="9" />
-=======
-      <File FileName="Assets\Scripts\Restart.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="74" Column="26" />
->>>>>>> 2d3180a31a54486146a1aad211ba9fa3468f9a8f
+      <File FileName="Assets\Scripts\Restart.cs" Line="51" Column="4" />
+      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
