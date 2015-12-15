@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour {
 
 			//Debug.Log ("3");
 			//temp.classID = .....
-			temp.createManager(i+1, os);
+			temp.createManager(CharacterSelect.controllerNumsForEachCharacter[i], os);
 			temp.health = healthBars[i];
             temp.specialMeter = specialMeters[i];
             temp.specialMeter.setMeterValue(0f) ;

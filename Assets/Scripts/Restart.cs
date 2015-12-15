@@ -15,17 +15,17 @@ public class Restart : MonoBehaviour {
 		
 		if (GameManager.winningTeam == true)
 		{
-			textBuffer += "\nTeam Two (Easter Bunny and Tooth Fairy) Wins!";
+			textBuffer += "\nTeam One Wins!";
 		}
 		else
 		{
-			textBuffer += "\nTeam One (Santa and Cupid) Wins!";
+			textBuffer += "\nTeam Two Wins!";
 
 		}
 
 		textBuffer += "\n";
 		textBuffer += "\nRed Team Rounds Won: " + teamOneCount;
-		textBuffer += "\nBlue Team Rounds Won: " + teamTwoCount;
+		textBuffer += "\nYellow Team Rounds Won: " + teamTwoCount;
 
 		GetComponent<Text>().text = textBuffer;
 	
@@ -44,7 +44,7 @@ public class Restart : MonoBehaviour {
 		{
 			teamOneCount = 0;
 			teamTwoCount = 0;
-			Application.LoadLevel ("differentArenaGameScene");
+			Application.LoadLevel ("CharacterSelectScreen");
 		}
 	}
 }
