@@ -10,10 +10,12 @@ public class Projectile : MonoBehaviour {
 	public float knockback;
 	public float maxProjectileLife;
 	public float projectileLife; // lifetime of projectile
+	public PlayOneShot(clip: AudioClip, volumeScale: float = 1.0F): void;
 
 	// Use this for initialization
 	void Start () {
 		projectileLife = 0f;
+		audio = GetComponent.<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -58,6 +60,11 @@ public class Projectile : MonoBehaviour {
 					Destroy (collision.gameObject);
 				}
 				Destroy (this.gameObject);
+
+				OnCollisionEnter () { 
+					audio.PlayOneShot(impact, 0.7F);
+					AudioSource.PlayClipAtPoint  
+				}
 			}
 		}
 		//if fired by team 2, ignore player 2, 4
@@ -72,6 +79,7 @@ public class Projectile : MonoBehaviour {
 				collision.attachedRigidbody.AddForce((collision.gameObject.transform.position - transform.position).normalized * knockback);
 				//temp: destroy dead players
 				if (collision.gameObject.GetComponent<Player>().health.curHealth <= 0f) {
+					//Camera.main.GetComponent<GameManager>().CheckIfTeamDead();
 					Destroy (collision.gameObject);
 				}
 				Destroy (this.gameObject);

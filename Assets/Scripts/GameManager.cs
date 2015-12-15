@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour {
 	public Player p2;
 	// test end
 
-	public Player playerPrefab;
+	public static bool winningTeam = true;
+
+	public Player santaFab, toothFab, cupidFab, bunnyFab;
 
 	public Health[] healthBars;
 
@@ -47,7 +49,12 @@ public class GameManager : MonoBehaviour {
         players = new Player[4];
 		for (int i = 0; i < 4; i++) {
 			//Debug.Log ("2");
-			Player temp = (Player) Instantiate (playerPrefab, playerPositions[i], Quaternion.identity);
+			Player temp = null;
+			if(i == 0){temp = (Player) Instantiate (santaFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 1){temp = (Player) Instantiate (cupidFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 2){temp = (Player) Instantiate (bunnyFab, playerPositions[i], Quaternion.identity);}
+			else if(i == 3){temp = (Player) Instantiate (toothFab, playerPositions[i], Quaternion.identity);}
+
 			//Debug.Log ("3");
 			//temp.classID = .....
 			temp.createManager(i+1, os);
@@ -58,7 +65,7 @@ public class GameManager : MonoBehaviour {
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
 				temp.GetComponent<Renderer>().material.color = Color.red;
-				temp.GetComponent<Rigidbody>().mass = .4f;
+				temp.GetComponent<Rigidbody>().mass = .45f;
 			}
 			else if (i + 1 == 2) {
 				temp.moveSpeed = 0.12f;
@@ -94,25 +101,52 @@ public class GameManager : MonoBehaviour {
 	void Update ()
     {
 		// temp: make it 2 player
-		if (Input.GetKeyDown(KeyCode.Alpha9)) {
-			for (int i = 2; i < 4; i++) {
-				players[i].health.decreaseHealth(100f);
-				Destroy(players[i].gameObject);
-
-			}
+		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+				players[0].health.decreaseHealth(100f);
+				Destroy(players[0].gameObject);
 		}
+		if (Input.GetKeyDown(KeyCode.Alpha2)) {
+				players[1].health.decreaseHealth(100f);
+				Destroy(players[1].gameObject);
+				
+
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3)) {
+				players[2].health.decreaseHealth(100f);
+				Destroy(players[2].gameObject);
+				
+			
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha4)) {
+				players[3].health.decreaseHealth(100f);
+				Destroy(players[3].gameObject);
+				
+			
+		}
+
+		CheckIfTeamDead();
 
 	}
 
     void CheckIfTeamDead()
     {
-        //if(players[0].health.curHealth <= 0 && players[1].health.curHealth <= 0)
-        //{
+
+        if(players[0].health.curHealth <= 0 && players[2].health.curHealth <= 0)
+        {
             //Team 1 is dead
-        //}
-       // if (players[2].health <= 0 && players[3].health <= 0)
-       // {
+			//End scene triggered
+			winningTeam = false;
+			Application.LoadLevel ("endScene");
+        }
+
+       else if (players[1].health.curHealth <= 0 && players[3].health.curHealth <= 0)
+       {
             //Team 2 is dead
-       // }
+			//End scene triggered
+			winningTeam = true;
+			Application.LoadLevel ("endScene");
+       }
     }
+
+
 }
