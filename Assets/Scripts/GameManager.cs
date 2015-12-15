@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     public Health[] specialMeters;
 
     Vector3[] playerPositions = {new Vector3(8f, 5f, -16f), new Vector3(25f, 5f, -16f),
-						  		 new Vector3(8f, 5f, -27f), new Vector3(25f, 5f, -27f)};
+						  		 new Vector3(8f, 2f, -27f), new Vector3(25f, 5f, -27f)};
 	string[] playerTags = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
     OS os;
