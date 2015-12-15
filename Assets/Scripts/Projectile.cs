@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour {
 
 	//void OnCollisionEnter(Collision collision) {
 	void OnTriggerEnter(Collider collision) {
-		//hitSound.Play ();
+		hitSound.Play ();
 		if (collision.tag == "Obstacle") {
 			Destroy(this.gameObject);
 			Debug.Log("hit wall");
