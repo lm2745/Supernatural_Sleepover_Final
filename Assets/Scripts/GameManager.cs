@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
 
 			//Debug.Log ("3");
 			//temp.classID = .....
-			temp.createManager(i+1, os);
+			temp.createManager(CharacterSelect.controllerNumsForEachCharacter[i], os);
 			temp.health = healthBars[i];
 			temp.tag = playerTags[i];
 			// Santa(1), Easter Bunny(2), Cupid(3), Tooth Fairy(4)
