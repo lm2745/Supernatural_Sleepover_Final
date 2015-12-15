@@ -88,6 +88,9 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		//if (projectileLife > 10f) {
+		//	GetComponent<Renderer>().enabled = true;
+		//}
 		if (projectileLife > maxProjectileLife) {
 			Destroy(this.gameObject);
 

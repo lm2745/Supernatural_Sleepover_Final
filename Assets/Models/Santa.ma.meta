@@ -138,7 +138,9 @@ ModelImporter:
     2300000: polySurface1
     3300000: polySurface1
     4300000: polySurface1
-    7400000: Take 001
+    7400000: Walking
+    7400002: Idle
+    7400004: Attack
     9500000: //RootNode
     13700000: polySurface1
   materials:
@@ -160,7 +162,475 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint5
+        weight: 1
+      - path: joint1/joint5/joint6
+        weight: 1
+      - path: joint1/joint5/joint6/joint7
+        weight: 1
+      - path: joint1/joint8
+        weight: 1
+      - path: joint1/joint8/joint9
+        weight: 1
+      - path: joint1/joint8/joint9/joint10
+        weight: 1
+      - path: joint1/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: joint1/joint8/joint12
+        weight: 1
+      - path: joint1/joint8/joint12/joint13
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag/joint15
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag/joint15/joint16
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/transform13
+        weight: 1
+      - path: pCone2
+        weight: 1
+      - path: pCone2/transform14
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      - path: polySurface2
+        weight: 1
+      - path: polySurface2/polySurface10
+        weight: 1
+      - path: polySurface2/polySurface10/transform22
+        weight: 1
+      - path: polySurface2/polySurface11
+        weight: 1
+      - path: polySurface2/polySurface11/transform21
+        weight: 1
+      - path: polySurface2/polySurface12
+        weight: 1
+      - path: polySurface2/polySurface12/transform20
+        weight: 1
+      - path: polySurface2/polySurface14
+        weight: 1
+      - path: polySurface2/polySurface14/transform19
+        weight: 1
+      - path: polySurface2/polySurface15
+        weight: 1
+      - path: polySurface2/polySurface15/transform18
+        weight: 1
+      - path: polySurface2/polySurface16
+        weight: 1
+      - path: polySurface2/polySurface16/transform17
+        weight: 1
+      - path: polySurface2/polySurface17
+        weight: 1
+      - path: polySurface2/polySurface17/transform16
+        weight: 1
+      - path: polySurface2/transform11
+        weight: 1
+      - path: polySurface3
+        weight: 1
+      - path: polySurface3/transform9
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform12
+        weight: 1
+      - path: sack:sack2:Mesh
+        weight: 1
+      - path: sack:sack2:Mesh/transform15
+        weight: 1
+      - path: Santa:Mesh
+        weight: 1
+      - path: Santa:Mesh/polySurface1 1
+        weight: 1
+      - path: Santa:Mesh/polySurface1 1/transform23
+        weight: 1
+      - path: Santa:Mesh/polySurface2 1
+        weight: 1
+      - path: Santa:Mesh/polySurface2 1/transform10
+        weight: 1
+      - path: Santa:Mesh/polySurface3 1
+        weight: 1
+      - path: Santa:Mesh/polySurface3 1/transform8
+        weight: 1
+      - path: Santa:Mesh/polySurface4
+        weight: 1
+      - path: Santa:Mesh/polySurface4/transform7
+        weight: 1
+      - path: Santa:Mesh/polySurface5
+        weight: 1
+      - path: Santa:Mesh/polySurface5/transform6
+        weight: 1
+      - path: Santa:Mesh/polySurface6
+        weight: 1
+      - path: Santa:Mesh/polySurface6/transform5
+        weight: 1
+      - path: Santa:Mesh/polySurface7
+        weight: 1
+      - path: Santa:Mesh/polySurface7/transform4
+        weight: 1
+      - path: Santa:Mesh/polySurface8
+        weight: 1
+      - path: Santa:Mesh/polySurface8/transform3
+        weight: 1
+      - path: Santa:Mesh/polySurface9
+        weight: 1
+      - path: Santa:Mesh/polySurface9/transform2
+        weight: 1
+      - path: Santa:Mesh/transform1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 26
+      lastFrame: 26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint5
+        weight: 1
+      - path: joint1/joint5/joint6
+        weight: 1
+      - path: joint1/joint5/joint6/joint7
+        weight: 1
+      - path: joint1/joint8
+        weight: 1
+      - path: joint1/joint8/joint9
+        weight: 1
+      - path: joint1/joint8/joint9/joint10
+        weight: 1
+      - path: joint1/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: joint1/joint8/joint12
+        weight: 1
+      - path: joint1/joint8/joint12/joint13
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag/joint15
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag/joint15/joint16
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/transform13
+        weight: 1
+      - path: pCone2
+        weight: 1
+      - path: pCone2/transform14
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      - path: polySurface2
+        weight: 1
+      - path: polySurface2/polySurface10
+        weight: 1
+      - path: polySurface2/polySurface10/transform22
+        weight: 1
+      - path: polySurface2/polySurface11
+        weight: 1
+      - path: polySurface2/polySurface11/transform21
+        weight: 1
+      - path: polySurface2/polySurface12
+        weight: 1
+      - path: polySurface2/polySurface12/transform20
+        weight: 1
+      - path: polySurface2/polySurface14
+        weight: 1
+      - path: polySurface2/polySurface14/transform19
+        weight: 1
+      - path: polySurface2/polySurface15
+        weight: 1
+      - path: polySurface2/polySurface15/transform18
+        weight: 1
+      - path: polySurface2/polySurface16
+        weight: 1
+      - path: polySurface2/polySurface16/transform17
+        weight: 1
+      - path: polySurface2/polySurface17
+        weight: 1
+      - path: polySurface2/polySurface17/transform16
+        weight: 1
+      - path: polySurface2/transform11
+        weight: 1
+      - path: polySurface3
+        weight: 1
+      - path: polySurface3/transform9
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform12
+        weight: 1
+      - path: sack:sack2:Mesh
+        weight: 1
+      - path: sack:sack2:Mesh/transform15
+        weight: 1
+      - path: Santa:Mesh
+        weight: 1
+      - path: Santa:Mesh/polySurface1 1
+        weight: 1
+      - path: Santa:Mesh/polySurface1 1/transform23
+        weight: 1
+      - path: Santa:Mesh/polySurface2 1
+        weight: 1
+      - path: Santa:Mesh/polySurface2 1/transform10
+        weight: 1
+      - path: Santa:Mesh/polySurface3 1
+        weight: 1
+      - path: Santa:Mesh/polySurface3 1/transform8
+        weight: 1
+      - path: Santa:Mesh/polySurface4
+        weight: 1
+      - path: Santa:Mesh/polySurface4/transform7
+        weight: 1
+      - path: Santa:Mesh/polySurface5
+        weight: 1
+      - path: Santa:Mesh/polySurface5/transform6
+        weight: 1
+      - path: Santa:Mesh/polySurface6
+        weight: 1
+      - path: Santa:Mesh/polySurface6/transform5
+        weight: 1
+      - path: Santa:Mesh/polySurface7
+        weight: 1
+      - path: Santa:Mesh/polySurface7/transform4
+        weight: 1
+      - path: Santa:Mesh/polySurface8
+        weight: 1
+      - path: Santa:Mesh/polySurface8/transform3
+        weight: 1
+      - path: Santa:Mesh/polySurface9
+        weight: 1
+      - path: Santa:Mesh/polySurface9/transform2
+        weight: 1
+      - path: Santa:Mesh/transform1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 43
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint5
+        weight: 1
+      - path: joint1/joint5/joint6
+        weight: 1
+      - path: joint1/joint5/joint6/joint7
+        weight: 1
+      - path: joint1/joint8
+        weight: 1
+      - path: joint1/joint8/joint9
+        weight: 1
+      - path: joint1/joint8/joint9/joint10
+        weight: 1
+      - path: joint1/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: joint1/joint8/joint12
+        weight: 1
+      - path: joint1/joint8/joint12/joint13
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag/joint15
+        weight: 1
+      - path: joint1/joint8/joint12/joint13/joint14/Bag/joint15/joint16
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/transform13
+        weight: 1
+      - path: pCone2
+        weight: 1
+      - path: pCone2/transform14
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      - path: polySurface2
+        weight: 1
+      - path: polySurface2/polySurface10
+        weight: 1
+      - path: polySurface2/polySurface10/transform22
+        weight: 1
+      - path: polySurface2/polySurface11
+        weight: 1
+      - path: polySurface2/polySurface11/transform21
+        weight: 1
+      - path: polySurface2/polySurface12
+        weight: 1
+      - path: polySurface2/polySurface12/transform20
+        weight: 1
+      - path: polySurface2/polySurface14
+        weight: 1
+      - path: polySurface2/polySurface14/transform19
+        weight: 1
+      - path: polySurface2/polySurface15
+        weight: 1
+      - path: polySurface2/polySurface15/transform18
+        weight: 1
+      - path: polySurface2/polySurface16
+        weight: 1
+      - path: polySurface2/polySurface16/transform17
+        weight: 1
+      - path: polySurface2/polySurface17
+        weight: 1
+      - path: polySurface2/polySurface17/transform16
+        weight: 1
+      - path: polySurface2/transform11
+        weight: 1
+      - path: polySurface3
+        weight: 1
+      - path: polySurface3/transform9
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform12
+        weight: 1
+      - path: sack:sack2:Mesh
+        weight: 1
+      - path: sack:sack2:Mesh/transform15
+        weight: 1
+      - path: Santa:Mesh
+        weight: 1
+      - path: Santa:Mesh/polySurface1 1
+        weight: 1
+      - path: Santa:Mesh/polySurface1 1/transform23
+        weight: 1
+      - path: Santa:Mesh/polySurface2 1
+        weight: 1
+      - path: Santa:Mesh/polySurface2 1/transform10
+        weight: 1
+      - path: Santa:Mesh/polySurface3 1
+        weight: 1
+      - path: Santa:Mesh/polySurface3 1/transform8
+        weight: 1
+      - path: Santa:Mesh/polySurface4
+        weight: 1
+      - path: Santa:Mesh/polySurface4/transform7
+        weight: 1
+      - path: Santa:Mesh/polySurface5
+        weight: 1
+      - path: Santa:Mesh/polySurface5/transform6
+        weight: 1
+      - path: Santa:Mesh/polySurface6
+        weight: 1
+      - path: Santa:Mesh/polySurface6/transform5
+        weight: 1
+      - path: Santa:Mesh/polySurface7
+        weight: 1
+      - path: Santa:Mesh/polySurface7/transform4
+        weight: 1
+      - path: Santa:Mesh/polySurface8
+        weight: 1
+      - path: Santa:Mesh/polySurface8/transform3
+        weight: 1
+      - path: Santa:Mesh/polySurface9
+        weight: 1
+      - path: Santa:Mesh/polySurface9/transform2
+        weight: 1
+      - path: Santa:Mesh/transform1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

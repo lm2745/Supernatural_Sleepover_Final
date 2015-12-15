@@ -498,7 +498,8 @@ ModelImporter:
     2300000: pSphere4
     3300000: pSphere4
     4300000: pSphere4
-    7400000: Take 001
+    7400000: Attack
+    7400002: Idle
     9500000: //RootNode
     13700000: pSphere4
   materials:
@@ -520,7 +521,87 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 21
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
