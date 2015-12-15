@@ -15,6 +15,20 @@ ModelImporter:
     100014: easterbunny:Mesh1
     100016: easterbunny:transform1
     100018: easterbunny:transform2
+    100020: joint1
+    100022: joint10
+    100024: joint11
+    100026: joint12
+    100028: joint13
+    100030: joint14
+    100032: joint2
+    100034: joint3
+    100036: joint4
+    100038: joint5
+    100040: joint6
+    100042: joint7
+    100044: joint8
+    100046: joint9
     400000: Carrot:pCylinder1
     400002: Carrot:pCylinder2
     400004: Carrot:pCylinder3
@@ -25,10 +39,26 @@ ModelImporter:
     400014: easterbunny:Mesh1
     400016: easterbunny:transform1
     400018: easterbunny:transform2
+    400020: joint1
+    400022: joint10
+    400024: joint11
+    400026: joint12
+    400028: joint13
+    400030: joint14
+    400032: joint2
+    400034: joint3
+    400036: joint4
+    400038: joint5
+    400040: joint6
+    400042: joint7
+    400044: joint8
+    400046: joint9
     2300000: easterbunny:Mesh1
     3300000: easterbunny:Mesh1
     4300000: easterbunny:Mesh1
+    7400000: Take 001
     9500000: //RootNode
+    13700000: easterbunny:Mesh1
   materials:
     importMaterials: 1
     materialName: 0

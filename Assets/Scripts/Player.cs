@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
 	public int team;
 	public int classID; // Santa(1), Cupid(2), Easter Bunny(3), Tooth Fairy(4)
 	public Projectile projectilePrefab;
+	public AudioSource hitSound;
+
 
 	// attack cooldown, same for all classes (for now)
 	float attackCooldown = 1f;
@@ -139,6 +141,7 @@ public class Player : MonoBehaviour {
                     temp.team = team;
                     temp.transform.localScale *= 2;
                     temp.GetComponent<Renderer>().material.color = Color.red;
+					temp.hitSound = hitSound;
 
                     //health.decreaseHealth(50f);
                 }
@@ -155,6 +158,7 @@ public class Player : MonoBehaviour {
                     temp.team = team;
                     temp.transform.localScale *= 2;
                     temp.GetComponent<Renderer>().material.color = Color.yellow;
+					temp.hitSound = hitSound;
 
                     //health.decreaseHealth(30f);
                 }
@@ -171,6 +175,7 @@ public class Player : MonoBehaviour {
                     temp.knockback = 150f;
                     temp.team = team;
                     temp.GetComponent<Renderer>().material.color = Color.red;
+					temp.hitSound = hitSound;
 
                     //health.decreaseHealth(10f);
                 }
@@ -187,6 +192,7 @@ public class Player : MonoBehaviour {
                     temp.knockback = 100f;
                     temp.team = team;
                     temp.GetComponent<Renderer>().material.color = Color.yellow;
+					temp.hitSound = hitSound;
 
                     //health.decreaseHealth(5f);
                 }

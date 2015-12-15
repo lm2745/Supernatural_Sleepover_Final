@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{858C28F2-1B8C-9FF8-BF09-4B58E2AD881A}</ProjectGuid>
+	<ProjectGuid>{2BD23CE5-5E45-B24F-B26C-7223EA340F86}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,7 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CharacterSelect.cs" />
+     <Compile Include="Assets\Idle.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\NextLevelButton.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\RainbowEffect.cs" />
      <Compile Include="Assets\Scripts\RangedWeapon.cs" />
      <Compile Include="Assets\Scripts\Restart.cs" />
  <Reference Include="UnityEngine.UI">

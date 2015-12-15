@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour {
 	public float knockback;
 	public float maxProjectileLife;
 	public float projectileLife; // lifetime of projectile
+	public AudioSource hitSound;
 
 	// Use this for initialization
 	void Start () {
@@ -23,11 +24,7 @@ public class Projectile : MonoBehaviour {
 
 	//void OnCollisionEnter(Collision collision) {
 	void OnTriggerEnter(Collider collision) {
-		//Debug.Log("hit");
-		//if (collision.gameObject.tag == "Wall") {
-		//	Destroy(this.gameObject);
-		//	Debug.Log("hit wall");
-		//}
+		//hitSound.Play ();
 		if (collision.tag == "Obstacle") {
 			Destroy(this.gameObject);
 			Debug.Log("hit wall");
