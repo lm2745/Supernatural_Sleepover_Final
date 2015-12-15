@@ -4,6 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     InputManager inputManager;//used to get input
+	Animator anim;
     //inputManager.getAxisX(), getAxisY(),
     //             getAction1(), getAction1Down(), getAction1Up()
     //             getAction2(), getAction2Down(), getAction2Up()
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour {
     {
 		//createManager(1, OS.WINDOWS);
         //moveSpeed = 0.1f;
+		anim = GetComponentInChildren<Animator>();
 	}
 	
 	void FixedUpdate() {
@@ -97,6 +99,9 @@ public class Player : MonoBehaviour {
 					temp.knockback = 100f;
 					temp.team = team;
 					temp.GetComponent<Renderer>().material.color = Color.yellow;
+
+					int attackHash = Animator.StringToHash("Attack");
+					anim.SetTrigger(attackHash);
 
 					//health.decreaseHealth(5f);
 				}
