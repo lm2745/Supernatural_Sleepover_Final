@@ -5,6 +5,9 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     InputManager inputManager;//used to get input
+	Animator anim;
+	int attackHash = Animator.StringToHash("Attack");
+	int walkingHash = Animator.StringToHash("Walking");
     //inputManager.getAxisX(), getAxisY(),
     //             getAction1(), getAction1Down(), getAction1Up()
     //             getAction2(), getAction2Down(), getAction2Up()
@@ -34,12 +37,16 @@ public class Player : MonoBehaviour {
         //createManager(1, OS.WINDOWS);
         //moveSpeed = 0.1f;
         specialMeter.setMeterValue(0f);
+		anim = GetComponentInChildren<Animator>();
+		anim.SetBool(walkingHash, true);
 	}
 	
 	void FixedUpdate() {
         //if (inputManager != null) {
         //move();
-
+		//if (anim.GetBool(walkingHash) == true) {
+		//	anim.SetBool(walkingHash, false);
+		//}
         moveWithForce();
         
 		timeSinceLastAttack += Time.deltaTime;
@@ -51,6 +58,7 @@ public class Player : MonoBehaviour {
 
         UpdateProjectiles();
         UpdateSpecialMeter();
+
         
 	}
 
@@ -133,12 +141,15 @@ public class Player : MonoBehaviour {
                     temp.transform.position += temp.transform.forward / 2;
                     temp.transform.localScale *= 2;
                     temp.damage = 25f;
-                    temp.projectileSpeed = 0.3f;
-                    temp.maxProjectileLife = 2f;
+                    temp.projectileSpeed = 0.13f;
+                    temp.maxProjectileLife = 15f;
                     temp.knockback = 350f;
                     temp.team = team;
                     temp.transform.localScale *= 2;
+					temp.GetComponent<Renderer>().enabled = false;
                     temp.GetComponent<Renderer>().material.color = Color.red;
+
+					anim.SetTrigger(attackHash);
 
                     //health.decreaseHealth(50f);
                 }
@@ -149,13 +160,15 @@ public class Player : MonoBehaviour {
 
                     //temp.transform.position += temp.transform.forward;
                     temp.damage = 20f;
-                    temp.projectileSpeed = 0.3f;
-                    temp.maxProjectileLife = 2f;
+                    temp.projectileSpeed = 0.13f;
+                    temp.maxProjectileLife = 15f;
                     temp.knockback = 250f;
                     temp.team = team;
                     temp.transform.localScale *= 2;
+					temp.GetComponent<Renderer>().enabled = false;
                     temp.GetComponent<Renderer>().material.color = Color.yellow;
 
+					anim.SetTrigger(attackHash);
                     //health.decreaseHealth(30f);
                 }
                 //else if (tag == "Cupid") {
@@ -172,6 +185,7 @@ public class Player : MonoBehaviour {
                     temp.team = team;
                     temp.GetComponent<Renderer>().material.color = Color.red;
 
+					anim.SetTrigger(attackHash);
                     //health.decreaseHealth(10f);
                 }
                 //else if (tag == "Tooth Fairy") {
@@ -188,6 +202,7 @@ public class Player : MonoBehaviour {
                     temp.team = team;
                     temp.GetComponent<Renderer>().material.color = Color.yellow;
 
+					anim.SetTrigger(attackHash);
                     //health.decreaseHealth(5f);
                 }
                 // temp code part of equal cooldown assumption
@@ -231,6 +246,10 @@ public class Player : MonoBehaviour {
         Vector3 oldYVelocity = new Vector3(0,rb.velocity.y,0);
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
         Vector3 newVelocity = Vector3.zero;
+		
+		//if (anim.GetBool(walkingHash) == false) {
+		//	anim.SetBool(walkingHash, true);
+		//}
 
         if (direction != Vector3.zero)
 		{

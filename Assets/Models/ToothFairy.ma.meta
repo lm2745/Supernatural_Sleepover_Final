@@ -80,8 +80,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Take 001
-      firstFrame: 21
-      lastFrame: 28
+      firstFrame: 22
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -116,7 +116,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Attack
       takeName: Take 001
-      firstFrame: 1
+      firstFrame: 7
       lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0

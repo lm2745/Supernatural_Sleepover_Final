@@ -70,24 +70,24 @@ public class GameManager : MonoBehaviour {
 			temp.classID = i + 1;
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
-				temp.GetComponent<Renderer>().material.color = Color.red;
+				//temp.GetComponent<Renderer>().material.color = Color.red;
 				temp.GetComponent<Rigidbody>().mass = .45f;
 			}
 			else if (i + 1 == 2) {
 				temp.moveSpeed = 0.12f;
-				temp.GetComponent<Renderer>().material.color = Color.blue;
+				//temp.GetComponent<Renderer>().material.color = Color.blue;
 				temp.GetComponent<Rigidbody>().mass = .28f;
 
 			}
 			else if (i + 1 == 3) {
 				temp.moveSpeed = 0.15f;
-				temp.GetComponent<Renderer>().material.color = Color.red;
+				//temp.GetComponent<Renderer>().material.color = Color.red;
 				temp.GetComponent<Rigidbody>().mass = .3f;
 
 			}
 			else if (i + 1 == 4) {
 				temp.moveSpeed = 0.12f;
-				temp.GetComponent<Renderer>().material.color = Color.blue;
+				//temp.GetComponent<Renderer>().material.color = Color.blue;
 				temp.GetComponent<Rigidbody>().mass = .32f;
 
 			}
