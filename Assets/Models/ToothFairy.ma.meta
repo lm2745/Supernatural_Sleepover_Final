@@ -24,6 +24,9 @@ ModelImporter:
     100032: transform4
     100034: transform5
     100036: transform6
+    100038: center
+    100040: hand
+    100042: wand_tip
     400000: crown:pPipe1
     400002: FairyWand:pCube1
     400004: FairyWand:pCube2
@@ -43,10 +46,17 @@ ModelImporter:
     400032: transform4
     400034: transform5
     400036: transform6
+    400038: center
+    400040: hand
+    400042: wand_tip
     2300000: pasted__pCylinder9
     3300000: pasted__pCylinder9
     4300000: pasted__pCylinder9
+    7400000: Attack
+    7400002: Idle
+    7400004: Idle
     9500000: //RootNode
+    13700000: pasted__pCylinder9
   materials:
     importMaterials: 1
     materialName: 0
@@ -66,7 +76,79 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 21
+      lastFrame: 28
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/hand
+        weight: 1
+      - path: center/hand/wand_tip
+        weight: 1
+      - path: pasted__pCylinder9
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/hand
+        weight: 1
+      - path: center/hand/wand_tip
+        weight: 1
+      - path: pasted__pCylinder9
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

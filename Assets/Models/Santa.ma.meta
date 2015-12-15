@@ -53,6 +53,23 @@ ModelImporter:
     100090: transform7
     100092: transform8
     100094: transform9
+    100096: Bag
+    100098: joint1
+    100100: joint10
+    100102: joint11
+    100104: joint12
+    100106: joint13
+    100108: joint14
+    100110: joint15
+    100112: joint16
+    100114: joint2
+    100116: joint3
+    100118: joint4
+    100120: joint5
+    100122: joint6
+    100124: joint7
+    100126: joint8
+    100128: joint9
     400000: pCone1
     400002: pCone2
     400004: polySurface1
@@ -101,10 +118,28 @@ ModelImporter:
     400090: transform7
     400092: transform8
     400094: transform9
+    400096: Bag
+    400098: joint1
+    400100: joint10
+    400102: joint11
+    400104: joint12
+    400106: joint13
+    400108: joint14
+    400110: joint15
+    400112: joint16
+    400114: joint2
+    400116: joint3
+    400118: joint4
+    400120: joint5
+    400122: joint6
+    400124: joint7
+    400126: joint8
+    400128: joint9
     2300000: polySurface1
     3300000: polySurface1
     4300000: polySurface1
     9500000: //RootNode
+    13700000: polySurface1
   materials:
     importMaterials: 1
     materialName: 0
