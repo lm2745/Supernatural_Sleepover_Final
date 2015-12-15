@@ -42,7 +42,7 @@ public class InputManager {
         else if (joystickNum == 2)
         {
             action1Keyboard = KeyCode.Space;
-            action2Keyboard = KeyCode.Greater;
+            action2Keyboard = KeyCode.RightAlt;
             if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
             {
                 action1Joystick = KeyCode.Joystick2Button0;
@@ -72,7 +72,7 @@ public class InputManager {
         else if (joystickNum == 4)
         {
             action1Keyboard = KeyCode.M;
-            action2Keyboard = KeyCode.Less;
+            action2Keyboard = KeyCode.LeftAlt;
             if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
             {
                 action1Joystick = KeyCode.Joystick4Button0;
@@ -110,7 +110,6 @@ public class InputManager {
     */               
     public bool getAction1Down()
     {
-		Debug.Log (action1Keyboard);
         return Input.GetKeyDown(action1Keyboard) || Input.GetKeyDown(action1Joystick);
     }
     public bool getAction2Down()
@@ -124,7 +123,7 @@ public class InputManager {
     }
     public bool getAction2()
     {
-        return Input.GetKeyDown(action2Keyboard) || Input.GetKeyDown(action2Joystick);
+        return Input.GetKey(action2Keyboard) || Input.GetKey(action2Joystick);
     }
 
     public bool getAction1Up()
