@@ -31,8 +31,9 @@ public class Player : MonoBehaviour {
 
     void Start ()
     {
-		//createManager(1, OS.WINDOWS);
+        //createManager(1, OS.WINDOWS);
         //moveSpeed = 0.1f;
+        specialMeter.setMeterValue(0f);
 	}
 	
 	void FixedUpdate() {
@@ -277,7 +278,7 @@ public class Player : MonoBehaviour {
         {
             if(bunnyRayInfo.collider.tag == "Obstacle")
             {
-                transform.position = bunnyRayInfo.transform.position + bunnyRayInfo.normal;
+                transform.position = bunnyRayInfo.point + bunnyRayInfo.normal;
             }
         }
 

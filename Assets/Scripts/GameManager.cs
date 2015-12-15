@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 			temp.createManager(i+1, os);
 			temp.health = healthBars[i];
             temp.specialMeter = specialMeters[i];
-            temp.specialMeter.curHealth = 0;
+            temp.specialMeter.setMeterValue(0f) ;
 			temp.tag = playerTags[i];
             temp.rainbowEffect = rainbowEffect;
 			// Santa(1), Easter Bunny(2), Cupid(3), Tooth Fairy(4)

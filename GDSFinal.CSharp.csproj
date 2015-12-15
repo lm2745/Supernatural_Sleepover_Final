@@ -68,13 +68,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CharacterSelect.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Scripts\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\MoveWith360.cs" />
     <Compile Include="Assets\Scripts\MoveWithKeyboard.cs" />
     <Compile Include="Assets\Scripts\MovementWith360.cs" />
+    <Compile Include="Assets\Scripts\NextLevelButton.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\RainbowEffect.cs" />
