@@ -245,6 +245,11 @@ ModelImporter:
     100474: transform97
     100476: transform98
     100478: transform99
+    100480: joint1
+    100482: joint2
+    100484: joint3
+    100486: joint4
+    100488: joint5
     400000: Angel_Wings1:l_wing_3
     400002: Angel_Wings1:r_wing_3
     400004: Angel_Wings:l_wing_1
@@ -485,10 +490,17 @@ ModelImporter:
     400474: transform97
     400476: transform98
     400478: transform99
+    400480: joint1
+    400482: joint2
+    400484: joint3
+    400486: joint4
+    400488: joint5
     2300000: pSphere4
     3300000: pSphere4
     4300000: pSphere4
+    7400000: Take 001
     9500000: //RootNode
+    13700000: pSphere4
   materials:
     importMaterials: 1
     materialName: 0
