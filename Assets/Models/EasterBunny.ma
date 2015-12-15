@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: EasterBunny.ma
-//Last modified: Tue, Dec 15, 2015 12:50:42 PM
+//Last modified: Tue, Dec 15, 2015 01:23:07 PM
 //Codeset: 932
 requires maya "2016";
 requires "stereoCamera" "10.0";
@@ -14,13 +14,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "E933D12C-48E3-45DD-BBDD-61A7BBBEBC28";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 136.71178063086035 21.546340372240696 60.473788751548497 ;
-	setAttr ".r" -type "double3" -363.33835272598975 -294.2000000000059 0 ;
+	setAttr ".t" -type "double3" 1.0753495391898817 7.9300873819398072 27.538586558676439 ;
+	setAttr ".r" -type "double3" -350.13835272598726 -358.99999999999585 1.1183340828996175e-016 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "C038191E-4957-29E4-55F2-05911E6C4DC0";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 149.49875776745907;
+	setAttr ".coi" 28.67173908504077;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -7245,7 +7245,7 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "AEF1F9E6-4DE5-A87E-37ED-D5B57A6244BD";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 21 -ast 1 -aet 40 ";
+	setAttr ".b" -type "string" "playbackOptions -min 22 -max 32 -ast 1 -aet 40 ";
 	setAttr ".st" 6;
 createNode polyCylinder -n "Carrot:polyCylinder1";
 	rename -uid "9C5E8D5B-4AAD-9758-C3A8-60A5B2677BE2";
@@ -10928,8 +10928,8 @@ createNode animCurveTU -n "joint14_scaleZ";
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  21 1 22 1 32 1;
 select -ne :time1;
-	setAttr ".o" 7;
-	setAttr ".unw" 7;
+	setAttr ".o" 22;
+	setAttr ".unw" 22;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
