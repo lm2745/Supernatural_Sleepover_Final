@@ -3,10 +3,8 @@ using System.Collections;
 
 public class CharacterSelect : MonoBehaviour
 {
-	int player1 = 0;
-	int player2 = 0;
-	int player3 = 0;
-	int player4 = 0;
+	static Player[] players;
+	Player temp = null;
 
 	// Update is called once per frame
 	void Update ()
@@ -41,29 +39,33 @@ public class CharacterSelect : MonoBehaviour
 	void SelectedCharacter1()
 	{
 		Debug.Log ("Character 1 Selected");
-		player1 = 1;
-		PlayerPrefs.SetInt ("playerSelected", (player1));
+		temp.createManager = 1;
+		Player[0] = temp;
+		PlayerPrefs.SetInt ("playerSelected", (Player[0]));
 	}
 
 	void SelectedCharacter2()
 	{
 		Debug.Log ("Character 2 Selected");
-		player2 = 2;
-		PlayerPrefs.SetInt ("playerSelected", (player2));
+		temp.createManager = 2;
+		Player[1] = temp;
+		PlayerPrefs.SetInt ("playerSelected", (Player[1]));
 	}
 
 	void SelectedCharacter3()
 	{
 		Debug.Log ("Character 3 Selected");
-		player1 = 3;
-		PlayerPrefs.SetInt ("playerSelected", (player3));
+		temp.createManager = 3;
+		Player[2] = temp;
+		PlayerPrefs.SetInt ("playerSelected", (Player[2]));
 	}
 
 	void SelectedCharacter4()
 	{
 		Debug.Log ("Character 4 Selected");
-		player1 = 4;
-		PlayerPrefs.SetInt ("playerSelected", (player4));
+		temp.createManager = 3;
+		Player[3] = temp;
+		PlayerPrefs.SetInt ("playerSelected", (Player[3]));
 	}
 
 }
