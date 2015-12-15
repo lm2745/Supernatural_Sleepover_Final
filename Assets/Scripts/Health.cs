@@ -31,6 +31,26 @@ public class Health : MonoBehaviour {
 		setHealthBar (calcHealth);
 	}
 
+    public void addSpecialMeter(float amount)
+    {
+        curHealth += amount;
+        if (curHealth > maxHealth)
+        {
+            curHealth = maxHealth;
+        }
+        float calcHealth = curHealth / maxHealth;
+        setHealthBar(calcHealth);
+    }
+
+    public void setMeterValue(float meterValue)
+    {
+        curHealth = meterValue;
+        float calcHealth = curHealth / maxHealth;
+        setHealthBar(calcHealth);
+    }
+    
+
+
 	public void setHealthBar (float myHealth)
 	{
 		healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);

@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: ToothFairy.ma
-//Last modified: Tue, Dec 15, 2015 01:27:28 PM
+//Last modified: Tue, Dec 15, 2015 02:02:40 PM
 //Codeset: 932
 requires maya "2016";
 requires "stereoCamera" "10.0";
@@ -4915,7 +4915,7 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "081343B1-495B-7443-E6F3-B1B25FA9C507";
-	setAttr ".b" -type "string" "playbackOptions -min 22 -max 30 -ast 1 -aet 30 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 20 -ast 1 -aet 30 ";
 	setAttr ".st" 6;
 createNode brush -n "art3dPaintLastPaintBrush";
 	rename -uid "8B588343-49F3-3119-02CA-CF85FE6ECDB1";
@@ -6710,8 +6710,8 @@ createNode animCurveTU -n "wand_tip_scaleZ";
 	setAttr ".wgt" no;
 	setAttr -s 4 ".ktv[0:3]"  1 1 21 1 22 0.54011977394057586 30 0.54011977394057586;
 select -ne :time1;
-	setAttr ".o" 25;
-	setAttr ".unw" 25;
+	setAttr ".o" 5;
+	setAttr ".unw" 5;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1

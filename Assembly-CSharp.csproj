@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Idle.cs" />
-     <Compile Include="Assets\Scripts\CharacterSelect.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
@@ -58,6 +57,7 @@
      <Compile Include="Assets\Scripts\NextLevelButton.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\RainbowEffect.cs" />
      <Compile Include="Assets\Scripts\RangedWeapon.cs" />
      <Compile Include="Assets\Scripts\Restart.cs" />
  <Reference Include="UnityEngine.UI">

@@ -15,13 +15,16 @@ public class GameManager : MonoBehaviour {
 	public Player santaFab, toothFab, cupidFab, bunnyFab;
 
 	public Health[] healthBars;
+    public Health[] specialMeters;
 
-	Vector3[] playerPositions = {new Vector3(8f, 5f, -16f), new Vector3(25f, 5f, -16f),
+    Vector3[] playerPositions = {new Vector3(8f, 5f, -16f), new Vector3(25f, 5f, -16f),
 						  		 new Vector3(8f, 5f, -27f), new Vector3(25f, 5f, -27f)};
 	string[] playerTags = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
     OS os;
     Player[] players;
+
+    public RainbowEffect rainbowEffect;
 
     // Use this for initialization
     void Start ()
@@ -59,29 +62,32 @@ public class GameManager : MonoBehaviour {
 			//temp.classID = .....
 			temp.createManager(i+1, os);
 			temp.health = healthBars[i];
+            temp.specialMeter = specialMeters[i];
+            temp.specialMeter.setMeterValue(0f) ;
 			temp.tag = playerTags[i];
+            temp.rainbowEffect = rainbowEffect;
 			// Santa(1), Easter Bunny(2), Cupid(3), Tooth Fairy(4)
 			temp.classID = i + 1;
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
-				temp.GetComponent<Renderer>().material.color = Color.red;
+				//temp.GetComponent<Renderer>().material.color = Color.red;
 				temp.GetComponent<Rigidbody>().mass = .45f;
 			}
 			else if (i + 1 == 2) {
 				temp.moveSpeed = 0.12f;
-				temp.GetComponent<Renderer>().material.color = Color.blue;
+				//temp.GetComponent<Renderer>().material.color = Color.blue;
 				temp.GetComponent<Rigidbody>().mass = .28f;
 
 			}
 			else if (i + 1 == 3) {
 				temp.moveSpeed = 0.15f;
-				temp.GetComponent<Renderer>().material.color = Color.red;
+				//temp.GetComponent<Renderer>().material.color = Color.red;
 				temp.GetComponent<Rigidbody>().mass = .3f;
 
 			}
 			else if (i + 1 == 4) {
 				temp.moveSpeed = 0.12f;
-				temp.GetComponent<Renderer>().material.color = Color.blue;
+				//temp.GetComponent<Renderer>().material.color = Color.blue;
 				temp.GetComponent<Rigidbody>().mass = .32f;
 
 			}
