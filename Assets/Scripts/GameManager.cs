@@ -15,13 +15,16 @@ public class GameManager : MonoBehaviour {
 	public Player santaFab, toothFab, cupidFab, bunnyFab;
 
 	public Health[] healthBars;
+    public Health[] specialMeters;
 
-	Vector3[] playerPositions = {new Vector3(8f, 5f, -16f), new Vector3(25f, 5f, -16f),
+    Vector3[] playerPositions = {new Vector3(8f, 5f, -16f), new Vector3(25f, 5f, -16f),
 						  		 new Vector3(8f, 5f, -27f), new Vector3(25f, 5f, -27f)};
 	string[] playerTags = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
     OS os;
     Player[] players;
+
+    public RainbowEffect rainbowEffect;
 
     // Use this for initialization
     void Start ()
@@ -59,7 +62,10 @@ public class GameManager : MonoBehaviour {
 			//temp.classID = .....
 			temp.createManager(i+1, os);
 			temp.health = healthBars[i];
+            temp.specialMeter = specialMeters[i];
+            temp.specialMeter.curHealth = 0;
 			temp.tag = playerTags[i];
+            temp.rainbowEffect = rainbowEffect;
 			// Santa(1), Easter Bunny(2), Cupid(3), Tooth Fairy(4)
 			temp.classID = i + 1;
 			if (i + 1 == 1) {

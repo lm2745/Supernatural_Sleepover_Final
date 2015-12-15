@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour {
 	// ******
     //public float health;
 	public Health health;
+    public Health specialMeter;
 
 	public int team;
 	public int classID; // Santa(1), Cupid(2), Easter Bunny(3), Tooth Fairy(4)
@@ -22,6 +24,11 @@ public class Player : MonoBehaviour {
 	float attackCooldown = 1f;
 	float timeSinceLastAttack;
 
+    bool canUseSpecial = false;
+    public RainbowEffect rainbowEffect;
+    Color specialNotFull = new Color(235f / 255f, 238f / 255f, 0);
+    Color specialFull = new Color(238f / 255f, 84f / 255f, 0);
+
     void Start ()
     {
 		//createManager(1, OS.WINDOWS);
@@ -29,169 +36,164 @@ public class Player : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		//if (inputManager != null) {
-		//move();
-		moveWithForce();
+        //if (inputManager != null) {
+        //move();
+
+        moveWithForce();
+        
 		timeSinceLastAttack += Time.deltaTime;
 		//}
 	}
 
-	void Update () {
-		if (inputManager.getAction1Down() ) {
-			//attack cooldown (temp code assuming cooldown same for all classes)
-			if (timeSinceLastAttack >= attackCooldown) {
-				//if (tag == "Santa") {
-				if (classID == 1) {
-					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-					temp.transform.position += temp.transform.forward/2;
-					temp.transform.localScale *= 2;
-					temp.damage = 25f;
-					temp.projectileSpeed = 0.3f;
-					temp.maxProjectileLife = 2f;
-					temp.knockback = 350f;
-					temp.team = team;
-					temp.transform.localScale *= 2;
-					temp.GetComponent<Renderer>().material.color = Color.red;
+	void Update ()
+    {
 
-					//health.decreaseHealth(50f);
-				}
-				//else if (tag == "Easter Bunny") {
-				else if (classID == 2) {
-					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-					
-					//temp.transform.position += temp.transform.forward;
-					temp.damage = 20f;
-					temp.projectileSpeed = 0.3f;
-					temp.maxProjectileLife = 2f;
-					temp.knockback = 250f;
-					temp.team = team;
-					temp.transform.localScale *= 2;
-					temp.GetComponent<Renderer>().material.color = Color.yellow;
-					
-					//health.decreaseHealth(30f);
-				}
-				//else if (tag == "Cupid") {
-				else if (classID == 3) {
-					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-					//temp.transform.position += temp.transform.forward;
-					temp.transform.localScale *= 2;
-					
-					temp.damage = 10f;
-					temp.projectileSpeed = 0.15f;
-					temp.maxProjectileLife = 50f;
-					temp.knockback = 150f;
-					temp.team = team;
-					temp.GetComponent<Renderer>().material.color = Color.red;
-					
-					//health.decreaseHealth(10f);
-				}
-				//else if (tag == "Tooth Fairy") {
-				else if (classID == 4) {
-					Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-					temp.transform.localScale *= 2;
-
-					temp.transform.position += temp.transform.forward/2;
-					temp.damage = 7f;
-					temp.projectileSpeed = 0.25f;
-					temp.maxProjectileLife = 100f;
-					temp.knockback = 100f;
-					temp.team = team;
-					temp.GetComponent<Renderer>().material.color = Color.yellow;
-
-					//health.decreaseHealth(5f);
-				}
-				// temp code part of equal cooldown assumption
-				timeSinceLastAttack = 0f;
-			}
-		}
-
-		//test setting player class
-		if (Input.GetKeyDown (KeyCode.Alpha1)) {
-			//tag = 0;
-			//tag = "Santa";
-			classID = 1;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha2)) {
-			//tag = 1;
-			//tag = "Cupid";
-			classID = 2;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha3)) {
-			//tag = 2;
-			//tag = "Easter Bunny";
-			classID = 3;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha4)) {
-			//tag = 3;
-			//tag = "Tooth Fairy";
-			classID = 4;
-		}
-		/*
-		//test attack
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			//health.decreaseHealth(5f);
-			//if (tag == "Santa") {
-			if (classID == 1) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 50f;
-				temp.projectileSpeed = 0.1f;
-				temp.maxProjectileLife = 5f;
-				temp.knockback = 500f;
-				temp.team = team;
-				//health.decreaseHealth(50f);
-			}
-			//else if (tag == "Cupid") {
-			else if (classID == 2) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 10f;
-				temp.projectileSpeed = 0.15f;
-				temp.maxProjectileLife = 50f;
-				temp.knockback = 50f;
-				temp.team = team;
-				//health.decreaseHealth(10f);
-			}
-			//else if (tag == "Easter Bunny") {
-			else if (classID == 3) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 30f;
-				temp.projectileSpeed = 0.15f;
-				temp.maxProjectileLife = 5f;
-				temp.knockback = 200f;
-				temp.team = team;
-				//health.decreaseHealth(30f);
-			}
-			//else if (tag == "Tooth Fairy") {
-			else if (classID == 4) {
-				Projectile temp = (Projectile) Instantiate(projectilePrefab, transform.position, transform.rotation);
-				temp.transform.position += temp.transform.forward;
-				temp.damage = 5f;
-				temp.projectileSpeed = 0.25f;
-				temp.maxProjectileLife = 100f;
-				temp.knockback = 10f;
-				temp.team = team;
-				//health.decreaseHealth(5f);
-			}
-		}
-
-		if (Input.GetKeyDown(KeyCode.E)) {
-			if (classID == 1) {
-				health.decreaseHealth(50f);
-			}			
-			else if (classID == 2) {
-				health.decreaseHealth(10f);
-			}			
-			else if (classID == 3) {
-				health.decreaseHealth(30f);
-			}			
-			else if (classID == 4) {
-				health.decreaseHealth(5f);
-			}
-		}
-		*/
+        UpdateProjectiles();
+        UpdateSpecialMeter();
+        
 	}
+
+    void UpdateSpecialMeter()
+    {
+        //Add meter if you're waiting for it to reload
+        if (!canUseSpecial)
+        {
+            specialMeter.addSpecialMeter(.1f);
+            if (specialMeter.curHealth >= 100)
+            {
+                canUseSpecial = true;
+                specialMeter.curHealth = 100;
+                specialMeter.GetComponentInChildren<Image>().color = specialFull;
+            }
+        }
+
+        //If you're not using your special and your meter isn't full
+        //Then you can't use your special
+        if(canUseSpecial && !inputManager.getAction2() && specialMeter.curHealth < 100f)
+        {
+            canUseSpecial = false;
+            specialMeter.GetComponentInChildren<Image>().color = specialNotFull;
+        }
+        else if (specialMeter.curHealth <= 0f)
+        {
+            canUseSpecial = false;
+            specialMeter.GetComponentInChildren<Image>().color = specialNotFull;
+        }
+
+        //Santa special
+        if (canUseSpecial && inputManager.getAction2() && classID == 1)
+        {
+            GetComponent<Rigidbody>().mass = .9f;
+            maxSpeed = 16f;
+            specialMeter.decreaseHealth(.6f);
+        }
+        else if (classID == 1)
+        {
+            GetComponent<Rigidbody>().mass = .45f;
+            maxSpeed = 8f;
+        }
+        //Easter Bunny special
+        if (canUseSpecial && inputManager.getAction2Down() && classID == 2)
+        {
+            EasterBunnyHop();
+        }
+        //Cupid Special
+        if (canUseSpecial && inputManager.getAction2() && classID == 3)
+        {
+            CupidFlight();
+        }
+        //Tooth Fairy Special
+        if (canUseSpecial && inputManager.getAction2() && classID == 4)
+        {
+            ToothFairyInvisibility();
+        }
+        else if (classID == 4)
+        {
+            MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer rend in renderers)
+            {
+                rend.enabled = true;
+            }
+        }
+
+    }
+
+    void UpdateProjectiles()
+    {
+        if (inputManager.getAction1Down())
+        {
+            //attack cooldown (temp code assuming cooldown same for all classes)
+            if (timeSinceLastAttack >= attackCooldown)
+            {
+                //if (tag == "Santa") {
+                if (classID == 1)
+                {
+                    Projectile temp = (Projectile)Instantiate(projectilePrefab, transform.position, transform.rotation);
+                    temp.transform.position += temp.transform.forward / 2;
+                    temp.transform.localScale *= 2;
+                    temp.damage = 25f;
+                    temp.projectileSpeed = 0.3f;
+                    temp.maxProjectileLife = 2f;
+                    temp.knockback = 350f;
+                    temp.team = team;
+                    temp.transform.localScale *= 2;
+                    temp.GetComponent<Renderer>().material.color = Color.red;
+
+                    //health.decreaseHealth(50f);
+                }
+                //else if (tag == "Easter Bunny") {
+                else if (classID == 2)
+                {
+                    Projectile temp = (Projectile)Instantiate(projectilePrefab, transform.position, transform.rotation);
+
+                    //temp.transform.position += temp.transform.forward;
+                    temp.damage = 20f;
+                    temp.projectileSpeed = 0.3f;
+                    temp.maxProjectileLife = 2f;
+                    temp.knockback = 250f;
+                    temp.team = team;
+                    temp.transform.localScale *= 2;
+                    temp.GetComponent<Renderer>().material.color = Color.yellow;
+
+                    //health.decreaseHealth(30f);
+                }
+                //else if (tag == "Cupid") {
+                else if (classID == 3)
+                {
+                    Projectile temp = (Projectile)Instantiate(projectilePrefab, transform.position, transform.rotation);
+                    //temp.transform.position += temp.transform.forward;
+                    temp.transform.localScale *= 2;
+
+                    temp.damage = 10f;
+                    temp.projectileSpeed = 0.15f;
+                    temp.maxProjectileLife = 50f;
+                    temp.knockback = 150f;
+                    temp.team = team;
+                    temp.GetComponent<Renderer>().material.color = Color.red;
+
+                    //health.decreaseHealth(10f);
+                }
+                //else if (tag == "Tooth Fairy") {
+                else if (classID == 4)
+                {
+                    Projectile temp = (Projectile)Instantiate(projectilePrefab, transform.position, transform.rotation);
+                    temp.transform.localScale *= 2;
+
+                    temp.transform.position += temp.transform.forward / 2;
+                    temp.damage = 7f;
+                    temp.projectileSpeed = 0.25f;
+                    temp.maxProjectileLife = 100f;
+                    temp.knockback = 100f;
+                    temp.team = team;
+                    temp.GetComponent<Renderer>().material.color = Color.yellow;
+
+                    //health.decreaseHealth(5f);
+                }
+                // temp code part of equal cooldown assumption
+                timeSinceLastAttack = 0f;
+            }
+        }
+    }
 
 	public void createManager(int joystickNum, OS os)
 	{
@@ -236,7 +238,7 @@ public class Player : MonoBehaviour {
 
 			if(classID == 1)
 			{
-				 newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed + 1);
+				 newVelocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 			}
 			else if( classID == 2)
 			{
@@ -257,5 +259,47 @@ public class Player : MonoBehaviour {
             
         }
         rb.velocity = newVelocity + oldYVelocity;
+    }
+
+    //Has a higher max speed but accelerates with less force
+   
+
+    public void EasterBunnyHop()
+    {
+        Vector3 startPosition = transform.position;
+        transform.position = new Vector3(transform.position.x,
+                                            transform.position.y + 6f,
+                                            transform.position.z);
+        
+        Ray bunnyRay = new Ray(transform.position, transform.forward);
+        RaycastHit bunnyRayInfo;
+        if(Physics.Raycast(bunnyRay, out bunnyRayInfo, 500f))
+        {
+            if(bunnyRayInfo.collider.tag == "Obstacle")
+            {
+                transform.position = bunnyRayInfo.transform.position + bunnyRayInfo.normal;
+            }
+        }
+
+        rainbowEffect.CreateRainbow(2f, startPosition, transform.position);
+        specialMeter.setMeterValue(0f);
+    }
+
+    public void ToothFairyInvisibility()
+    {
+        MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer rend in renderers)
+        {
+            rend.enabled = false;
+        }
+        specialMeter.decreaseHealth(.8f);
+    }
+
+    public void CupidFlight()
+    {
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y + .4f, 0f, 5.5f), transform.position.z);
+        specialMeter.decreaseHealth(.7f);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
     }
 }
