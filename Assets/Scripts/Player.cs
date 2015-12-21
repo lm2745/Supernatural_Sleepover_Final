@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
         //moveSpeed = 0.1f;
         specialMeter.setMeterValue(0f);
 		anim = GetComponentInChildren<Animator>();
-		anim.SetBool(walkingHash, true);
+		//anim.SetBool(walkingHash, true);
 	}
 	
 	void FixedUpdate() {
@@ -139,13 +139,12 @@ public class Player : MonoBehaviour {
                 {
                     Projectile temp = (Projectile)Instantiate(projectilePrefab, transform.position, transform.rotation);
                     temp.transform.position += temp.transform.forward / 2;
-                    temp.transform.localScale *= 2;
                     temp.damage = 25f;
                     temp.projectileSpeed = 0.13f;
                     temp.maxProjectileLife = 15f;
                     temp.knockback = 350f;
                     temp.team = team;
-                    temp.transform.localScale *= 2;
+                    temp.transform.localScale *= 4;
 					temp.GetComponent<Renderer>().enabled = false;
                     temp.GetComponent<Renderer>().material.color = Color.red;
 
@@ -246,13 +245,23 @@ public class Player : MonoBehaviour {
         Vector3 oldYVelocity = new Vector3(0,rb.velocity.y,0);
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
         Vector3 newVelocity = Vector3.zero;
-		
-		//if (anim.GetBool(walkingHash) == false) {
-		//	anim.SetBool(walkingHash, true);
-		//}
 
+		if (classID == 1 && direction == Vector3.zero) {
+			if (anim.GetBool(walkingHash) == true) {
+				Debug.Log("set to idle");
+				anim.SetBool(walkingHash, false);
+			}
+		}
+		
         if (direction != Vector3.zero)
 		{
+			if (classID == 1 ) {
+				if (anim.GetBool(walkingHash) == false) {
+					Debug.Log("set to walking");
+					anim.SetBool(walkingHash, true);
+				}
+			}
+
 			transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
 			rb.AddForce(transform.forward * 30) ;
 
