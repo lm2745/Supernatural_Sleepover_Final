@@ -15,17 +15,18 @@ public class Restart : MonoBehaviour {
 		
 		if (GameManager.winningTeam == true)
 		{
-			textBuffer += "\nTeam One Wins!";
+			textBuffer += "\nRed Team Wins!";
+			teamOneCount++;
 		}
 		else
 		{
-			textBuffer += "\nTeam Two Wins!";
-
+			textBuffer += "\nYellow Team Wins!";
+			teamTwoCount++;
 		}
 
 		textBuffer += "\n";
-		textBuffer += "\nRed Team Rounds Won: " + teamOneCount;
-		textBuffer += "\nYellow Team Rounds Won: " + teamTwoCount;
+		textBuffer += "\nRed Team Total: " + teamOneCount;
+		textBuffer += "\nYellow Team Total: " + teamTwoCount;
 
 		GetComponent<Text>().text = textBuffer;
 	
@@ -40,7 +41,7 @@ public class Restart : MonoBehaviour {
 			//Application.LoadLevel("gameUI"); // Application.LoadLevel("myGameScene");
 			Application.LoadLevel ("differentArenaGameScene");
 		}
-		else if (Input.GetKeyDown (KeyCode.O))
+		else if (Input.GetKeyDown (KeyCode.S))
 		{
 			teamOneCount = 0;
 			teamTwoCount = 0;

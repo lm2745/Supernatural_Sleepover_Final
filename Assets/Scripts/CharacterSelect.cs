@@ -26,31 +26,39 @@ public class CharacterSelect : MonoBehaviour
 
 						if (hitTag == "Santa")
 						{
+							GameObject destroySanta = mouseRayHit.transform.gameObject;
 							controllerNumsForEachCharacter[0] = whichController;
 							Debug.Log ("Player is now Santa");
 							mouseRayHit.transform.gameObject.tag = "SantaChosen";
+							Destroy (destroySanta);
 							whichController++;
 						}
 						if (hitTag == "Easter Bunny")
 						{
+							GameObject destroyEasterBunny = mouseRayHit.transform.gameObject;
 							controllerNumsForEachCharacter[1] = whichController;
 							Debug.Log ("Player is now Easter Bunny");
 							mouseRayHit.transform.gameObject.tag = "EasterBunnyChosen";
+							Destroy (destroyEasterBunny);
 							whichController++;
 						}
 						if (hitTag == "Cupid")
 						{
+							GameObject destroyCupid = mouseRayHit.transform.gameObject;
 							controllerNumsForEachCharacter[2] = whichController;
 							Debug.Log ("Player is now Cupid");
 							mouseRayHit.transform.gameObject.tag = "CupidChosen";
+							Destroy (destroyCupid);
 							whichController++;
 						}
 						
 						if (hitTag == "Tooth Fairy")
 						{
+							GameObject destroyToothFairy = mouseRayHit.transform.gameObject;
 							controllerNumsForEachCharacter[3] = whichController;
 							Debug.Log ("Player is now Tooth Fairy");
 							mouseRayHit.transform.gameObject.tag = "ToothFairyChosen";
+							Destroy (destroyToothFairy);
 							whichController++;
 						}
 					}
