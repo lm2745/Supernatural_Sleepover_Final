@@ -24,6 +24,7 @@ public class Player : MonoBehaviour {
 	public Projectile projectilePrefab;
 	public AudioSource hitSound;
     public AudioSource deathSound;
+    bool revertSpecialEffects = false; //Use so that special effect changes are only triggered once
 
 
 	
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour {
 
     bool canUseSpecial = false;
     public RainbowEffect rainbowEffect;
-    Color specialNotFull = new Color(235f / 255f, 238f / 255f, 0);
+    Color specialNotFull = new Color(155f / 255f, 250f / 255f, 255f/255f);
     Color specialFull = new Color(238f / 255f, 84f / 255f, 0);
 
     void Start ()
@@ -95,14 +96,34 @@ public class Player : MonoBehaviour {
         //Santa special
         if (canUseSpecial && inputManager.getAction2() && classID == 1)
         {
-            GetComponent<Rigidbody>().mass = .9f;
-            maxSpeed = 16f;
+            if (!revertSpecialEffects)
+            {
+                revertSpecialEffects = true;
+                GetComponent<Rigidbody>().mass = .9f;
+                maxSpeed = 16f;
+                ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
+                foreach(ParticleSystem p in particles)
+                {
+                    p.Play();
+                }
+
+                revertSpecialEffects = true;
+            }
             specialMeter.decreaseHealth(.6f);
         }
         else if (classID == 1)
         {
-            GetComponent<Rigidbody>().mass = .45f;
-            maxSpeed = 8f;
+            if (revertSpecialEffects)
+            {
+                GetComponent<Rigidbody>().mass = .45f;
+                maxSpeed = 8f;
+                ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
+                foreach (ParticleSystem p in particles)
+                {
+                    p.Stop();
+                }
+                revertSpecialEffects = false;
+            }
         }
         //Easter Bunny special
         if (canUseSpecial && inputManager.getAction2Down() && classID == 2)
@@ -117,19 +138,21 @@ public class Player : MonoBehaviour {
         //Tooth Fairy Special
         if (canUseSpecial && inputManager.getAction2() && classID == 4)
         {
-            ToothFairyInvisibility();
+            if (!revertSpecialEffects)
+            {
+                EnableInvisibility();
+                revertSpecialEffects = true;
+            }
+
+            specialMeter.decreaseHealth(.8f);
+
         }
         else if (classID == 4)
         {
-            MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
-            SkinnedMeshRenderer[] skinRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
-            foreach (MeshRenderer rend in renderers)
+            if (revertSpecialEffects)
             {
-                rend.enabled = true;
-            }
-            foreach (SkinnedMeshRenderer rend in skinRenderers)
-            {
-                rend.enabled = true;
+                DisableInvisibility();
+                revertSpecialEffects = false;
             }
         }
 
@@ -153,7 +176,7 @@ public class Player : MonoBehaviour {
                     temp.knockback = 350f;
                     temp.team = team;
                     temp.transform.localScale *= 4.5f;
-					//temp.GetComponent<Renderer>().enabled = false;
+					temp.GetComponent<Renderer>().enabled = false;
                     temp.GetComponent<Renderer>().material.color = Color.red;
 					temp.hitSound = hitSound;
                     temp.deathSound = deathSound;
@@ -332,7 +355,7 @@ public class Player : MonoBehaviour {
         specialMeter.setMeterValue(0f);
     }
 
-    public void ToothFairyInvisibility()
+    public void EnableInvisibility()
     {
         MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
         SkinnedMeshRenderer[] skinRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -344,7 +367,20 @@ public class Player : MonoBehaviour {
         {
             rend.enabled = false;
         }
-        specialMeter.decreaseHealth(.8f);
+    }
+
+    public void DisableInvisibility()
+    {
+        MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+        SkinnedMeshRenderer[] skinRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach (MeshRenderer rend in renderers)
+        {
+            rend.enabled = true;
+        }
+        foreach (SkinnedMeshRenderer rend in skinRenderers)
+        {
+            rend.enabled = true;
+        }
     }
 
     public void CupidFlight()

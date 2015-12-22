@@ -14,6 +14,8 @@ public class InputManager {
     KeyCode action1Keyboard, action1Joystick, 
         action2Keyboard, action2Joystick;
 
+    bool isDualShock4 = false;
+
 	public InputManager(int joystickNum, OS os)
     {
         this.joystickNum = joystickNum;
@@ -22,66 +24,92 @@ public class InputManager {
         //Set string to use with Input.GetAxis(String)
         leftX = "360LeftX" + joystickNum;
         leftY = "360LeftY" + joystickNum;
-        
+
+       
+        if (Input.GetJoystickNames().Length >= joystickNum && Input.GetJoystickNames()[joystickNum-1] == "Wireless Controller")
+        {
+            isDualShock4 = true;
+        }
 
         if(joystickNum == 1)
         {
             action1Keyboard = KeyCode.E;
             action2Keyboard = KeyCode.R;
-            if(os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            
+            if(isDualShock4)
             {
                 action1Joystick = KeyCode.Joystick1Button0;
                 action2Joystick = KeyCode.Joystick1Button1;
             }
+            else if(os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            {
+                action1Joystick = KeyCode.Joystick1Button2;
+                action2Joystick = KeyCode.Joystick1Button0;
+            }
             else if (os == OS.OSX)// If Mac
             {
-                action1Joystick = KeyCode.Joystick1Button16;
-                action2Joystick = KeyCode.Joystick1Button17;
+                action1Joystick = KeyCode.Joystick1Button18;
+                action2Joystick = KeyCode.Joystick1Button16;
             }
         }
         else if (joystickNum == 2)
         {
             action1Keyboard = KeyCode.Space;
             action2Keyboard = KeyCode.RightAlt;
-            if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            if (isDualShock4)
             {
                 action1Joystick = KeyCode.Joystick2Button0;
                 action2Joystick = KeyCode.Joystick2Button1;
             }
+            else if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            {
+                action1Joystick = KeyCode.Joystick2Button2;
+                action2Joystick = KeyCode.Joystick2Button0;
+            }
             else if (os == OS.OSX)// If Mac
             {
-                action1Joystick = KeyCode.Joystick2Button16;
-                action2Joystick = KeyCode.Joystick2Button17;
+                action1Joystick = KeyCode.Joystick2Button18;
+                action2Joystick = KeyCode.Joystick2Button16;
             }
         }
         else if (joystickNum == 3)
         {
             action1Keyboard = KeyCode.O;
             action2Keyboard = KeyCode.P;
-            if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            if (isDualShock4)
             {
                 action1Joystick = KeyCode.Joystick3Button0;
                 action2Joystick = KeyCode.Joystick3Button1;
             }
+            else if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            {
+                action1Joystick = KeyCode.Joystick3Button2;
+                action2Joystick = KeyCode.Joystick3Button0;
+            }
             else if (os == OS.OSX)// If Mac
             {
-                action1Joystick = KeyCode.Joystick3Button16;
-                action2Joystick = KeyCode.Joystick3Button17;
+                action1Joystick = KeyCode.Joystick3Button18;
+                action2Joystick = KeyCode.Joystick3Button16;
             }
         }
         else if (joystickNum == 4)
         {
             action1Keyboard = KeyCode.M;
             action2Keyboard = KeyCode.LeftAlt;
-            if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            if (isDualShock4)
             {
                 action1Joystick = KeyCode.Joystick4Button0;
                 action2Joystick = KeyCode.Joystick4Button1;
             }
+            else if (os == OS.WINDOWS || os == OS.LINUX) //If Windows or Linux
+            {
+                action1Joystick = KeyCode.Joystick4Button2;
+                action2Joystick = KeyCode.Joystick4Button0;
+            }
             else if (os == OS.OSX)// If Mac
             {
-                action1Joystick = KeyCode.Joystick4Button16;
-                action2Joystick = KeyCode.Joystick4Button17;
+                action1Joystick = KeyCode.Joystick4Button18;
+                action2Joystick = KeyCode.Joystick4Button16;
             }
         }
 
