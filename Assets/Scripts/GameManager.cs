@@ -39,10 +39,10 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			//Debug.Log ("2");
 			Player temp = null;
-			if(i == 0){temp = (Player) Instantiate (santaFab, playerPositions[i], Quaternion.identity);}
-			else if(i == 1){temp = (Player) Instantiate (bunnyFab, playerPositions[i], Quaternion.identity);}
-			else if(i == 2){temp = (Player) Instantiate (cupidFab, playerPositions[i], Quaternion.identity);}
-			else if(i == 3){temp = (Player) Instantiate (toothFab, playerPositions[i], Quaternion.identity);}
+			if(i == 0){temp = (Player) Instantiate (santaFab, playerPositions[i], Quaternion.LookRotation(Vector3.right, Vector3.up));}
+			else if(i == 1){temp = (Player) Instantiate (bunnyFab, playerPositions[i], Quaternion.LookRotation(Vector3.left, Vector3.up));}
+			else if(i == 2){temp = (Player) Instantiate (cupidFab, playerPositions[i], Quaternion.LookRotation(Vector3.right, Vector3.up));}
+			else if(i == 3){temp = (Player) Instantiate (toothFab, playerPositions[i], Quaternion.LookRotation(Vector3.left, Vector3.up));}
 
 			//Debug.Log ("3");
 			//temp.classID = .....

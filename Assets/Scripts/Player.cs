@@ -134,6 +134,27 @@ public class Player : MonoBehaviour {
         if (canUseSpecial && inputManager.getAction2() && classID == 3)
         {
             CupidFlight();
+            if(!revertSpecialEffects)
+            {
+                ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
+                foreach (ParticleSystem p in particles)
+                {
+                    p.Play();
+                }
+                revertSpecialEffects = true;
+            }
+        }
+        else if(classID == 3)
+        {
+            if (revertSpecialEffects)
+            {
+                ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
+                foreach (ParticleSystem p in particles)
+                {
+                    p.Stop();
+                }
+                revertSpecialEffects = false;
+            }
         }
         //Tooth Fairy Special
         if (canUseSpecial && inputManager.getAction2() && classID == 4)
