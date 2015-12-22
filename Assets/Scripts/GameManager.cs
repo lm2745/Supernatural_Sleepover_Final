@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     Player[] players;
 
     public RainbowEffect rainbowEffect;
+    public AudioSource deathSound;
 
     // Use this for initialization
     void Start ()
@@ -66,12 +67,14 @@ public class GameManager : MonoBehaviour {
             temp.specialMeter.setMeterValue(0f) ;
 			temp.tag = playerTags[i];
             temp.rainbowEffect = rainbowEffect;
+            temp.deathSound = deathSound;
 			// Santa(1), Easter Bunny(2), Cupid(3), Tooth Fairy(4)
 			temp.classID = i + 1;
 			if (i + 1 == 1) {
 				temp.moveSpeed = 0.15f;
 				//temp.GetComponent<Renderer>().material.color = Color.red;
 				temp.GetComponent<Rigidbody>().mass = .45f;
+                
 			}
 			else if (i + 1 == 2) {
 				temp.moveSpeed = 0.12f;
@@ -83,6 +86,7 @@ public class GameManager : MonoBehaviour {
 				temp.moveSpeed = 0.15f;
 				//temp.GetComponent<Renderer>().material.color = Color.red;
 				temp.GetComponent<Rigidbody>().mass = .3f;
+                temp.attackCooldown = .7f;
 
 			}
 			else if (i + 1 == 4) {

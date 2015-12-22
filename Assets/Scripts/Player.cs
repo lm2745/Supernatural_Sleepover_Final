@@ -23,10 +23,11 @@ public class Player : MonoBehaviour {
 	public int classID; // Santa(1), Cupid(2), Easter Bunny(3), Tooth Fairy(4)
 	public Projectile projectilePrefab;
 	public AudioSource hitSound;
+    public AudioSource deathSound;
 
 
-	// attack cooldown, same for all classes (for now)
-	float attackCooldown = 1f;
+	
+	public float attackCooldown = 1f;
 	float timeSinceLastAttack;
 
     bool canUseSpecial = false;
@@ -121,7 +122,12 @@ public class Player : MonoBehaviour {
         else if (classID == 4)
         {
             MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+            SkinnedMeshRenderer[] skinRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
             foreach (MeshRenderer rend in renderers)
+            {
+                rend.enabled = true;
+            }
+            foreach (SkinnedMeshRenderer rend in skinRenderers)
             {
                 rend.enabled = true;
             }
@@ -142,16 +148,17 @@ public class Player : MonoBehaviour {
                     Projectile temp = (Projectile)Instantiate(projectilePrefab, transform.position, transform.rotation);
                     temp.transform.position += temp.transform.forward / 2;
                     temp.damage = 25f;
-                    temp.projectileSpeed = 0.13f;
-                    temp.maxProjectileLife = 15f;
+                    temp.projectileSpeed = 0.18f;
+                    temp.maxProjectileLife = 13f;
                     temp.knockback = 350f;
                     temp.team = team;
-                    temp.transform.localScale *= 4;
-					temp.GetComponent<Renderer>().enabled = false;
+                    temp.transform.localScale *= 4.5f;
+					//temp.GetComponent<Renderer>().enabled = false;
                     temp.GetComponent<Renderer>().material.color = Color.red;
 					temp.hitSound = hitSound;
-
-					anim.SetTrigger(attackHash);
+                    temp.deathSound = deathSound;
+                    anim.SetTrigger(attackHash);
+                    temp.classID = classID;
 
                     //health.decreaseHealth(50f);
                 }
@@ -162,16 +169,17 @@ public class Player : MonoBehaviour {
 
                     //temp.transform.position += temp.transform.forward;
                     temp.damage = 20f;
-                    temp.projectileSpeed = 0.13f;
-                    temp.maxProjectileLife = 15f;
+                    temp.projectileSpeed = 0.18f;
+                    temp.maxProjectileLife = 12f;
                     temp.knockback = 250f;
                     temp.team = team;
                     temp.transform.localScale *= 2;
 					temp.GetComponent<Renderer>().enabled = false;
                     temp.GetComponent<Renderer>().material.color = Color.yellow;
 					temp.hitSound = hitSound;
-
-					anim.SetTrigger(attackHash);
+                    temp.deathSound = deathSound;
+                    temp.classID = classID;
+                    anim.SetTrigger(attackHash);
                     //health.decreaseHealth(30f);
                 }
                 //else if (tag == "Cupid") {
@@ -181,16 +189,18 @@ public class Player : MonoBehaviour {
                     //temp.transform.position += temp.transform.forward;
                     temp.transform.localScale *= 2;
 
-                    temp.damage = 10f;
-                    temp.projectileSpeed = 0.15f;
-                    temp.maxProjectileLife = 50f;
+                    temp.damage = 15f;
+                    temp.projectileSpeed = 0.17f;
+                    temp.maxProjectileLife = 35f;
                     temp.knockback = 150f;
                     temp.team = team;
+                    temp.transform.localScale *= .8f;
                     temp.GetComponent<Renderer>().material.color = Color.red;
 					temp.hitSound = hitSound;
-
-					anim.SetTrigger(attackHash);
+                    temp.deathSound = deathSound;
+                    anim.SetTrigger(attackHash);
                     //health.decreaseHealth(10f);
+                    temp.classID = classID;
                 }
                 //else if (tag == "Tooth Fairy") {
                 else if (classID == 4)
@@ -199,17 +209,19 @@ public class Player : MonoBehaviour {
                     temp.transform.localScale *= 2;
 
                     temp.transform.position += temp.transform.forward / 2;
-                    temp.damage = 7f;
+                    temp.damage = 10f;
                     temp.projectileSpeed = 0.25f;
                     temp.maxProjectileLife = 100f;
                     temp.knockback = 100f;
                     temp.team = team;
                     temp.GetComponent<Renderer>().material.color = Color.yellow;
 					temp.hitSound = hitSound;
-
-					anim.SetTrigger(attackHash);
+                    temp.deathSound = deathSound;
+                    anim.SetTrigger(attackHash);
                     //health.decreaseHealth(5f);
+                    temp.classID = classID;
                 }
+                
                 // temp code part of equal cooldown assumption
                 timeSinceLastAttack = 0f;
             }
@@ -254,7 +266,7 @@ public class Player : MonoBehaviour {
 
 		if (classID == 1 && direction == Vector3.zero) {
 			if (anim.GetBool(walkingHash) == true) {
-				Debug.Log("set to idle");
+				//Debug.Log("set to idle");
 				anim.SetBool(walkingHash, false);
 			}
 		}
@@ -263,7 +275,7 @@ public class Player : MonoBehaviour {
 		{
 			if (classID == 1 ) {
 				if (anim.GetBool(walkingHash) == false) {
-					Debug.Log("set to walking");
+					//Debug.Log("set to walking");
 					anim.SetBool(walkingHash, true);
 				}
 			}
@@ -323,7 +335,12 @@ public class Player : MonoBehaviour {
     public void ToothFairyInvisibility()
     {
         MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
-        foreach(MeshRenderer rend in renderers)
+        SkinnedMeshRenderer[] skinRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach (MeshRenderer rend in renderers)
+        {
+            rend.enabled = false;
+        }
+        foreach (SkinnedMeshRenderer rend in skinRenderers)
         {
             rend.enabled = false;
         }

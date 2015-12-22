@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class CharacterSelect : MonoBehaviour
 {
-	public static int[] controllerNumsForEachCharacter = new int[4];
+	public static int[] controllerNumsForEachCharacter = new int[4] { 1, 2, 3, 4 };
 	int whichController = 1;
 
 	// Update is called once per frame
