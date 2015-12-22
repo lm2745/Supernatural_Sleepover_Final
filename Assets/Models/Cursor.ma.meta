@@ -8,15 +8,26 @@ ModelImporter:
     100000: //RootNode
     100002: pCube1
     100004: pPyramid1
+    100006: pCube2
+    100008: transform1
+    100010: transform2
     400000: //RootNode
     400002: pCube1
     400004: pPyramid1
+    400006: pCube2
+    400008: transform1
+    400010: transform2
     2300000: pCube1
     2300002: pPyramid1
+    2300004: pCube2
+    2300006: //RootNode
     3300000: pCube1
     3300002: pPyramid1
+    3300004: pCube2
+    3300006: //RootNode
     4300000: pPyramid1
     4300002: pCube1
+    4300004: pCube2
     9500000: //RootNode
   materials:
     importMaterials: 1

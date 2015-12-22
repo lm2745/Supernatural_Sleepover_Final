@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour {
 						  		 new Vector3(8f, 2f, -27f), new Vector3(25f, 5f, -27f)};
 	string[] playerTags = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
-    OS os;
+    public static OS os;
+    
     Player[] players;
 
     public RainbowEffect rainbowEffect;
@@ -30,26 +31,10 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-	    if(Application.platform == RuntimePlatform.OSXDashboardPlayer
-            || Application.platform == RuntimePlatform.OSXEditor
-            || Application.platform == RuntimePlatform.OSXPlayer
-            || Application.platform == RuntimePlatform.OSXWebPlayer)
-        {
-            os = OS.OSX;
-        }
-        else if (Application.platform == RuntimePlatform.LinuxPlayer)
-        {
-            os = OS.LINUX;
-        }
-        else if (Application.platform == RuntimePlatform.WindowsEditor
-                || Application.platform == RuntimePlatform.WindowsPlayer
-                || Application.platform == RuntimePlatform.WindowsWebPlayer)
-        {
-            os = OS.WINDOWS;
-        }
+        DecideOS();
 
-		//Debug.Log ("1");
-		//healthBars = new Health[4];
+        //Debug.Log ("1");
+        //healthBars = new Health[4];
         players = new Player[4];
 		for (int i = 0; i < 4; i++) {
 			//Debug.Log ("2");
@@ -156,6 +141,27 @@ public class GameManager : MonoBehaviour {
 			winningTeam = true;
 			Application.LoadLevel ("endScene");
        }
+    }
+
+    public static void DecideOS()
+    {
+        if (Application.platform == RuntimePlatform.OSXDashboardPlayer
+           || Application.platform == RuntimePlatform.OSXEditor
+           || Application.platform == RuntimePlatform.OSXPlayer
+           || Application.platform == RuntimePlatform.OSXWebPlayer)
+        {
+            os = OS.OSX;
+        }
+        else if (Application.platform == RuntimePlatform.LinuxPlayer)
+        {
+            os = OS.LINUX;
+        }
+        else if (Application.platform == RuntimePlatform.WindowsEditor
+                || Application.platform == RuntimePlatform.WindowsPlayer
+                || Application.platform == RuntimePlatform.WindowsWebPlayer)
+        {
+            os = OS.WINDOWS;
+        }
     }
 
 
